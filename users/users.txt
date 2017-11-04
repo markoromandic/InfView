@@ -1,0 +1,5 @@
+1;SA;admin;admin;admin;admin;system.admin@gmail.com
+2;OU;marko;marko;marko;romandic;markoromandic11@gmail.com
+3;MA;meta;meta;nemanja;granic;nemanja.granic@gmail.com
+4;STA;storage;storage;stefan;jeremic;stefan.jeremic@gmail.com
+5;UA;useradmin;useradmin;uros;jeremic;uros.jeremic@gmail.com

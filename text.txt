@@ -1,0 +1,58 @@
+{
+  "type" : "Repository",
+  "name" : "Repo",
+  "collection" : [ {
+    "type" : "Package",
+    "name" : "Package1",
+    "collection" : [ {
+      "type" : "Package",
+      "name" : "Package-sub",
+      "collection" : [ {
+        "type" : "Entity",
+        "name" : "Entity1",
+        "attributes" : [ {
+          "type" : "Attribute",
+          "name" : "Attribute1"
+        }, {
+          "type" : "Attribute",
+          "name" : "Attribute2"
+        } ],
+        "relations" : [ ]
+      } ]
+    } ]
+  }, {
+    "type" : "Entity",
+    "name" : "Entity3",
+    "attributes" : [ {
+      "type" : "Attribute",
+      "name" : "Attribute1"
+    } ],
+    "relations" : [ ]
+  }, {
+    "type" : "Package",
+    "name" : "Package2",
+    "collection" : [ {
+      "type" : "Entity",
+      "name" : "Entity2",
+      "attributes" : [ {
+        "type" : "Attribute",
+        "name" : "Attribute1"
+      }, {
+        "type" : "Attribute",
+        "name" : "Attribute2"
+      }, {
+        "type" : "Attribute",
+        "name" : "Attribute3"
+      } ],
+      "relations" : [ ]
+    } ]
+  }, {
+    "type" : "Entity",
+    "name" : "Entity4",
+    "attributes" : [ {
+      "type" : "Attribute",
+      "name" : "Attribute1"
+    } ],
+    "relations" : [ ]
+  } ]
+}

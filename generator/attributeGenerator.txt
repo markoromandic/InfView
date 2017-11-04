@@ -1,0 +1,5 @@
+{
+	"type" : "Attribute",
+	"name" : "NAME",
+	"length" : LENGTH OF ATTRIBUTE
+}

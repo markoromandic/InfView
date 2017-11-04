@@ -1,0 +1,6 @@
+{
+	"type" : "Repository",
+	"name" : "NAME",
+	"url"  : "LOCATION",
+	"collection" : [ PACKAGE OR ENTITY TYPE ]
+}

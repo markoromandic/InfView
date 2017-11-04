@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="src" path="src"/>
+	<classpathentry kind="src" path="users"/>
+	<classpathentry kind="src" path="ext"/>
+	<classpathentry kind="src" path="meta_scheme"/>
+	<classpathentry kind="src" path="generator"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/jdk-9.0.1"/>
+	<classpathentry kind="lib" path="ext/jackson-all-1.9.0.jar"/>
+	<classpathentry kind="lib" path="ext/json-schema-validator-2.2.6-lib.jar"/>
+	<classpathentry kind="lib" path="ext/miglayout-4.0-swing.jar"/>
+	<classpathentry kind="lib" path="ext/jtds-1.0.3.jar"/>
+	<classpathentry kind="output" path="bin"/>
+</classpath>

@@ -1,0 +1,111 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+    "type": "object",
+    "title": "Repository",
+    "description": "Data storage",
+    "properties": 
+    {
+      "type":{"type":"string", "pattern": "^Repository$"},
+      "name":{"type":"string"},
+      "url":{"type":"string"},
+      "collection":
+      {
+        "type":"array",
+        "items":{"anyOf":[{"$ref": "#/definitions/package"}, {"$ref": "#/definitions/entity"}]}
+      }
+    },
+    "required":["name","type","url"],
+    "additionalProperties":false,
+    "definitions":
+    {
+      "entity":
+      {
+        "type":"object",
+        "description":"Represents data entity. Represented as the table in software",
+        "properties":
+        {
+          "type":{"type":"string", "pattern": "^Entity$"},
+          "name":{"type":"string"},
+          "database_type":{"type":"string"},
+          "url":{"type":"string"},
+          "url_tree":{"type":"string"},
+          "url_over":{"type":"string"},
+          "attributes":
+          {
+            "type":"array",
+            "items":
+            {
+              "type":"object",
+              "description":"Represents information. Represented as the column in software",
+              "properties":
+              {
+                "type":{"type":"string", "pattern": "^Attribute$"},
+                "name":{"type":"string"},
+                "value_type":{"type":"string"},
+                "length":{"type":"integer"},
+                "mandatory":{"type":"boolean"}
+              },
+              "required":["name","type","value_type"],
+              "additionalProperties":false
+            }
+          },
+          "relations":
+          {
+            "type":"array",
+            "items":
+            {
+              "description":"Represents the relation between two entities",
+              "properties":
+              {
+                "code": {"type":"string"},
+                "name": {"type": "string"},
+                "referedEntity": 
+                {
+                  "type": "array",
+                  "items":{
+                    "type": "string"
+                  }
+                },
+                "reference":
+                {
+                  "type": "array",
+                  "items":{
+                    "type": "string"
+                  }
+                },
+                "refered": 
+                {
+                  "type": "array",
+                  "items":{
+                    "type": "string"
+                  }
+                }
+              },
+              "required":["reference","refered","referedEntity"],
+              "additionalProperties":false
+            }
+          }
+        },
+        "required":["name","type","url","database_type"],
+        "additionalProperties":false
+      },
+      "package":
+      {
+        "type":"object",
+        "description":"Package represents the group of other packages and entities",
+        "properties":
+        {
+          "type":{"type":"string", "pattern": "^Package$"},
+          "name":{"type":"string"},
+          "url":{"type":"string"},
+          "collection":
+          {
+            "type":"array",
+            "items":{"anyOf":[{"$ref": "#/definitions/package"}, {"$ref": "#/definitions/entity"}]}
+          }
+        },
+        "required":["name","type","url"],
+        "additionalProperties":false
+      }
+    }
+}

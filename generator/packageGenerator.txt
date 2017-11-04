@@ -1,0 +1,6 @@
+{
+	"type" : "Package",
+	"name" : "Package1",
+    "url"  : "LOCATION",
+    "collection" : [ PACKAGE OR ENTITY TYPE ]
+}

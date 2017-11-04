@@ -1,0 +1,2 @@
+1;meta_scheme_studije;meta_scheme;Studije
+2;metasemaadvokatska;meta_scheme;

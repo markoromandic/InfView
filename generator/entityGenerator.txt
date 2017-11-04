@@ -1,0 +1,7 @@
+{
+	"type" : "Entity",
+    "name" : "Entity1",
+	"url"  : "LOCATION",
+	"attributes" : [ ATTRIBUTE TYPE ],
+    "relations" : [ ]
+}

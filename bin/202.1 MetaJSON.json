@@ -1,0 +1,87 @@
+{
+  "type" : "Repository",
+  "name" : "Repo",
+  "url"  : "URL",
+  "collection" : [ {
+    "type" : "Package",
+    "name" : "Package1",
+    "url"  : "URL",
+    "collection" : [ {
+      "type" : "Package",
+      "name" : "Package-sub",
+      "url"  : "URL",
+      "collection" : [ {
+        "type" : "Entity",
+        "name" : "Entity1",
+        "url"  : "URL",
+        "attributes" : [ {
+          "type" : "Attribute",
+          "name" : "Attribute1",
+          "value_type" : "NUMERIC",
+          "length" : 3,
+          "mandatory" : false
+        }, {
+          "type" : "Attribute",
+          "name" : "Attribute2",
+          "value_type" : "VARCHAR",
+          "length" : 10,
+          "mandatory" : true
+        } ],
+        "relations" : [ ]
+      } ]
+    } ]
+  }, {
+    "type" : "Entity",
+    "name" : "Entity3",
+    "url"  : "URL",
+    "attributes" : [ {
+      "type" : "Attribute",
+      "name" : "ATTRIBUTE1",
+      "value_type" : "NUMERIC",
+      "length" : 2,
+      "mandatory" : true
+    } ],
+    "relations" : [ ]
+  }, {
+    "type" : "Package",
+    "name" : "Package2",
+    "url"  : "URL",
+    "collection" : [ {
+      "type" : "Entity",
+      "name" : "Entity2",
+      "url"  : "URL",
+      "attributes" : [ {
+        "type" : "Attribute",
+        "name" : "Attribute1",
+        "value_type" : "NUMERIC",
+        "length" : 10,
+        "mandatory" : true
+      }, {
+        "type" : "Attribute",
+        "name" : "Attribute2",
+        "value_type" : "VARCHAR",
+        "length" : 8,
+        "mandatory" : false
+      }, {
+        "type" : "Attribute",
+        "name" : "Attribute3",
+        "value_type" : "CHAR",
+        "length" : 1,
+        "mandatory" : false
+      } ],
+      "relations" : [ ]
+    } ]
+  }, {
+    "type" : "Entity",
+    "name" : "Entity4",
+    "url"  : "URL",
+    "attributes" : [ {
+      "type" : "Attribute",
+      "name" : "Attribute1",
+      "value_type" : "NUMERIC",
+      "length" : 3,
+      "mandatory" : false
+    } ],
+    "relations" : [ ]
+  } ]
+}

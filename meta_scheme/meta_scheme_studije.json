@@ -1,0 +1,804 @@
+{
+  "type" : "Repository",
+  "name" : "Studije",
+  "url"  : "podaci",
+  "collection" : [ {
+      "type" : "Package",
+      "name" : "Serijska",
+      "url"  : "serijske",
+      "collection" : [ {
+        "type" : "Entity",
+        "name" : "NastavniPredmeti",
+        "url"  : "NastavniPredmeti.txt",
+        "database_type": "ser",
+        "attributes" : [ {
+          "type" : "Attribute",
+          "name" : "OZNAKA_PLANA",
+          "value_type" : "CHAR",
+          "length" : 2,
+          "mandatory" : true
+        }, {
+          "type" : "Attribute",
+          "name" : "SIFRA_PREDMETA",
+          "value_type" : "VARCHAR",
+          "length" : 5,
+          "mandatory" : true
+        }, {
+          "type" : "Attribute",
+          "name" : "NAZIV_PREDMETA",
+          "value_type" : "VARCHAR",
+          "length" : 80,
+          "mandatory" : false
+        }, {
+          "type" : "Attribute",
+          "name" : "TRAJE_SEMESTARA",
+          "value_type" : "NUMERIC",
+          "length" : 2,
+          "mandatory" : false
+        }, {
+          "type" : "Attribute",
+          "name" : "BROJ_KREDITA",
+          "value_type" : "NUMERIC",
+          "length" : 3,
+          "mandatory" : false
+        } ],
+        "relations" : [ ]
+      }, {
+        "type" : "Entity",
+        "name" : "PlanStudijskogPrograma",
+        "url"  : "PlanStudijskogPrograma.txt",
+        "database_type": "ser",
+        "attributes" : [ {
+          "type" : "Attribute",
+          "name" : "OZNAKA_PROGRAMA",
+          "value_type" : "CHAR",
+          "length" : 4,
+          "mandatory" : true
+        }, {
+          "type" : "Attribute",
+          "name" : "OZNAKA_PLANA",
+          "value_type" : "CHAR",
+          "length" : 2,
+          "mandatory" : true
+        }, {
+          "type" : "Attribute",
+          "name" : "SIFRA_PREDMETA",
+          "value_type" : "VARCHAR",
+          "length" : 5,
+          "mandatory" : true
+        }, {
+          "type" : "Attribute",
+          "name" : "GODINA_PREDMETA",
+          "value_type" : "NUMERIC",
+          "length" : 1,
+          "mandatory" : false
+        }, {
+          "type" : "Attribute",
+          "name" : "SEMESTAR_PREDMETA",
+          "value_type" : "NUMERIC",
+          "length" : 2,
+          "mandatory" : false
+        } ],
+        "relations" : [ {
+          "code" : "STUDENTSKI_PROGRAM_NA_PLANU_STUDIJSKOG_PROGRAMA",
+          "name" : "studentski program na planu studentskog programa",
+          "reference" : [
+            "OZNAKA_PROGRAMA"
+          ],
+          "referedEntity" : [
+            "StudijskiProgrami"
+          ],
+          "refered" : [
+            "OZNAKA_PROGRAMA"
+          ]
+        }, {
+          "code" : "NASTAVNI_PROGRAM_NA_PLANU_STUDIJSKOG_PROGRAMA",
+          "name" : "nastani program na planu studijskog programa",
+          "reference" : [
+            "SIFRA_PREDMETA"
+          ],
+          "referedEntity" : [
+            "StudijskiProgrami"
+          ],
+          "refered" : [
+            "SIFRA_PREDMETA"
+          ]
+        } ]
+      }, {
+        "type" : "Entity",
+        "name" : "Studenti",
+        "url"  : "Studenti.txt",
+        "database_type": "ser",
+        "attributes" : [ {
+          "type" : "Attribute",
+          "name" : "STRUKA",
+          "value_type" : "CHAR",
+          "length" : 1,
+          "mandatory" : true
+        }, {
+          "type" : "Attribute",
+          "name" : "BROJ INDEKSA",
+          "value_type" : "VARCHAR",
+          "length" : 6,
+          "mandatory" : true
+        }, {
+          "type" : "Attribute",
+          "name" : "PREZIME",
+          "value_type" : "VARCHAR",
+          "length" : 20,
+          "mandatory" : false
+        }, {
+          "type" : "Attribute",
+          "name" : "IME RODITELJA",
+          "value_type" : "VARCHAR",
+          "length" : 20,
+          "mandatory" : false
+        }, {
+          "type" : "Attribute",
+          "name" : "IME",
+          "value_type" : "VARCHAR",
+          "length" : 20,
+          "mandatory" : false
+        }, {
+          "type" : "Attribute",
+          "name" : "POL",
+          "value_type" : "CHAR",
+          "length" : 1,
+          "mandatory" : false
+        }, {
+          "type" : "Attribute",
+          "name" : "JMBG",
+          "value_type" : "VARCHAR",
+          "length" : 13,
+          "mandatory" : false
+        }, {
+          "type" : "Attribute",
+          "name" : "DATUM RODJENJA",
+          "value_type" : "DATETIME",
+          "length" : 25,
+          "mandatory" : false
+        }, {
+          "type" : "Attribute",
+          "name" : "ADRESA",
+          "value_type" : "VARCHAR",
+          "length" : 80,
+          "mandatory" : false
+        }, {
+          "type" : "Attribute",
+          "name" : "TELEFON",
+          "value_type" : "VARCHAR",
+          "length" : 20,
+          "mandatory" : false
+        } ],
+        "relations" : [ ]
+      }, {
+        "type" : "Entity",
+        "name" : "StudijskiProgrami",
+        "url"  : "StudijskiProgrami.txt",
+        "database_type": "ser",
+        "attributes" : [ {
+          "type" : "Attribute",
+          "name" : "OZNAKA_PROGRAMA",
+          "value_type" : "CHAR",
+          "length" : 4,
+          "mandatory" : true
+        }, {
+          "type" : "Attribute",
+          "name" : "NAZIV_KOJI_SE_STICE",
+          "value_type" : "VARCHAR",
+          "length" : 80,
+          "mandatory" : false
+        }, {
+          "type" : "Attribute",
+          "name" : "NAZIV PROGRAMA",
+          "value_type" : "VARCHAR",
+          "length" : 80,
+          "mandatory" : false
+        } ],
+        "relations" : [ ]
+      }, {
+        "type" : "Entity",
+        "name" : "TokStudija",
+        "url"  : "TokStudija.txt",
+        "database_type": "ser",
+        "attributes" : [ {
+          "type" : "Attribute",
+          "name" : "STRUKA",
+          "value_type" : "CHAR",
+          "length" : 1,
+          "mandatory" : true
+        }, {
+          "type" : "Attribute",
+          "name" : "BROJ INDEKSA",
+          "value_type" : "VARCHAR",
+          "length" : 6,
+          "mandatory" : true
+        }, {
+          "type" : "Attribute",
+          "name" : "OZNAKA_PROGRAMA",
+          "value_type" : "CHAR",
+          "length" : 4,
+          "mandatory" : true
+        }, {
+          "type" : "Attribute",
+          "name" : "SKOLSKA_GODINA",
+          "value_type" : "CHAR",
+          "length" : 4,
+          "mandatory" : true
+        }, {
+          "type" : "Attribute",
+          "name" : "GODINA_STUDIJA",
+          "value_type" : "NUMERIC",
+          "length" : 1,
+          "mandatory" : false
+        }, {
+          "type" : "Attribute",
+          "name" : "UPISUJE_PO_PLANU",
+          "value_type" : "CHAR",
+          "length" : 2,
+          "mandatory" : false
+        } ],
+        "relations" : [ {
+          "code" : "STUDENTI_NA_TOKU_STUDIJA",
+          "name" : "studenti na toku studija",
+          "reference" : [
+            "STRUKA"
+          ],
+          "referedEntity" : [
+            "Studenti"
+          ],
+          "refered" : [
+            "STRUKA"
+          ]
+        }, {
+          "code" : "STUDENTSKI_PROGRAM_NA_TOKU_STUDIJA",
+          "name" : "studentski program na toku studija",
+          "reference" : [
+            "OZNAKA_PROGRAMA"
+          ],
+          "referedEntity" : [
+            "StudijskiProgrami"
+          ],
+          "refered" : [
+            "OZNAKA_PROGRAMA"
+          ]
+        } ]
+      } ]
+  },
+  {
+      "type" : "Package",
+      "name" : "Sekvencijalne",
+      "url"  : "sekvencijalne",
+      "collection" : [ {
+        "type" : "Entity",
+        "name" : "NastavniPredmeti",
+        "url"  : "NastavniPredmeti.stxt",
+        "database_type": "sek",
+        "attributes" : [ {
+          "type" : "Attribute",
+          "name" : "OZNAKA_PLANA",
+          "value_type" : "CHAR",
+          "length" : 2,
+          "mandatory" : true
+        }, {
+          "type" : "Attribute",
+          "name" : "SIFRA_PREDMETA",
+          "value_type" : "VARCHAR",
+          "length" : 5,
+          "mandatory" : true
+        }, {
+          "type" : "Attribute",
+          "name" : "NAZIV_PREDMETA",
+          "value_type" : "VARCHAR",
+          "length" : 80,
+          "mandatory" : false
+        }, {
+          "type" : "Attribute",
+          "name" : "TRAJE_SEMESTARA",
+          "value_type" : "NUMERIC",
+          "length" : 2,
+          "mandatory" : false
+        }, {
+          "type" : "Attribute",
+          "name" : "BROJ_KREDITA",
+          "value_type" : "NUMERIC",
+          "length" : 3,
+          "mandatory" : false
+        } ],
+        "relations" : [ ]
+      }, {
+        "type" : "Entity",
+        "name" : "PlanStudijskogPrograma",
+        "url"  : "PlanStudijskogPrograma.stxt",
+        "database_type": "sek",
+        "attributes" : [ {
+          "type" : "Attribute",
+          "name" : "OZNAKA_PROGRAMA",
+          "value_type" : "CHAR",
+          "length" : 4,
+          "mandatory" : true
+        }, {
+          "type" : "Attribute",
+          "name" : "OZNAKA_PLANA",
+          "value_type" : "CHAR",
+          "length" : 2,
+          "mandatory" : true
+        }, {
+          "type" : "Attribute",
+          "name" : "SIFRA_PREDMETA",
+          "value_type" : "VARCHAR",
+          "length" : 5,
+          "mandatory" : true
+        }, {
+          "type" : "Attribute",
+          "name" : "GODINA_PREDMETA",
+          "value_type" : "NUMERIC",
+          "length" : 1,
+          "mandatory" : false
+        }, {
+          "type" : "Attribute",
+          "name" : "SEMESTAR_PREDMETA",
+          "value_type" : "NUMERIC",
+          "length" : 2,
+          "mandatory" : false
+        } ],
+        "relations" : [ {
+          "code" : "STUDENTSKI_PROGRAM_NA_PLANU_STUDIJSKOG_PROGRAMA",
+          "name" : "studentski program na planu studentskog programa",
+          "reference" : [
+            "OZNAKA_PROGRAMA"
+          ],
+          "referedEntity" : [
+            "StudijskiProgrami"
+          ],
+          "refered" : [
+            "OZNAKA_PROGRAMA"
+          ]
+        }, {
+          "code" : "NASTAVNI_PROGRAM_NA_PLANU_STUDIJSKOG_PROGRAMA",
+          "name" : "nastani program na planu studijskog programa",
+          "reference" : [
+            "SIFRA_PREDMETA"
+          ],
+          "referedEntity" : [
+            "StudijskiProgrami"
+          ],
+          "refered" : [
+            "SIFRA_PREDMETA"
+          ]
+        } ]
+      }, {
+        "type" : "Entity",
+        "name" : "Studenti",
+        "url"  : "Studenti.stxt",
+        "database_type": "sek",
+        "attributes" : [ {
+          "type" : "Attribute",
+          "name" : "STRUKA",
+          "value_type" : "CHAR",
+          "length" : 1,
+          "mandatory" : true
+        }, {
+          "type" : "Attribute",
+          "name" : "BROJ INDEKSA",
+          "value_type" : "VARCHAR",
+          "length" : 6,
+          "mandatory" : true
+        }, {
+          "type" : "Attribute",
+          "name" : "PREZIME",
+          "value_type" : "VARCHAR",
+          "length" : 20,
+          "mandatory" : false
+        }, {
+          "type" : "Attribute",
+          "name" : "IME RODITELJA",
+          "value_type" : "VARCHAR",
+          "length" : 20,
+          "mandatory" : false
+        }, {
+          "type" : "Attribute",
+          "name" : "IME",
+          "value_type" : "VARCHAR",
+          "length" : 20,
+          "mandatory" : false
+        }, {
+          "type" : "Attribute",
+          "name" : "POL",
+          "value_type" : "CHAR",
+          "length" : 1,
+          "mandatory" : false
+        }, {
+          "type" : "Attribute",
+          "name" : "JMBG",
+          "value_type" : "VARCHAR",
+          "length" : 13,
+          "mandatory" : false
+        }, {
+          "type" : "Attribute",
+          "name" : "DATUM RODJENJA",
+          "value_type" : "DATETIME",
+          "length" : 25,
+          "mandatory" : false
+        }, {
+          "type" : "Attribute",
+          "name" : "ADRESA",
+          "value_type" : "VARCHAR",
+          "length" : 80,
+          "mandatory" : false
+        }, {
+          "type" : "Attribute",
+          "name" : "TELEFON",
+          "value_type" : "VARCHAR",
+          "length" : 20,
+          "mandatory" : false
+        } ],
+        "relations" : [ ]
+      }, {
+        "type" : "Entity",
+        "name" : "StudijskiProgrami",
+        "url"  : "StudijskiProgrami.stxt",
+        "database_type": "sek",
+        "attributes" : [ {
+          "type" : "Attribute",
+          "name" : "OZNAKA_PROGRAMA",
+          "value_type" : "CHAR",
+          "length" : 4,
+          "mandatory" : true
+        }, {
+          "type" : "Attribute",
+          "name" : "NAZIV_KOJI_SE_STICE",
+          "value_type" : "VARCHAR",
+          "length" : 80,
+          "mandatory" : false
+        }, {
+          "type" : "Attribute",
+          "name" : "NAZIV PROGRAMA",
+          "value_type" : "VARCHAR",
+          "length" : 80,
+          "mandatory" : false
+        } ],
+        "relations" : [ ]
+      }, {
+        "type" : "Entity",
+        "name" : "TokStudija",
+        "url"  : "TokStudija.stxt",
+        "database_type": "sek",
+        "attributes" : [ {
+          "type" : "Attribute",
+          "name" : "STRUKA",
+          "value_type" : "CHAR",
+          "length" : 1,
+          "mandatory" : true
+        }, {
+          "type" : "Attribute",
+          "name" : "BROJ INDEKSA",
+          "value_type" : "VARCHAR",
+          "length" : 6,
+          "mandatory" : true
+        }, {
+          "type" : "Attribute",
+          "name" : "OZNAKA_PROGRAMA",
+          "value_type" : "CHAR",
+          "length" : 4,
+          "mandatory" : true
+        }, {
+          "type" : "Attribute",
+          "name" : "SKOLSKA_GODINA",
+          "value_type" : "CHAR",
+          "length" : 4,
+          "mandatory" : true
+        }, {
+          "type" : "Attribute",
+          "name" : "GODINA_STUDIJA",
+          "value_type" : "NUMERIC",
+          "length" : 1,
+          "mandatory" : false
+        }, {
+          "type" : "Attribute",
+          "name" : "UPISUJE_PO_PLANU",
+          "value_type" : "CHAR",
+          "length" : 2,
+          "mandatory" : false
+        } ],
+        "relations" : [ {
+          "code" : "STUDENTI_NA_TOKU_STUDIJA",
+          "name" : "studenti na toku studija",
+          "reference" : [
+            "STRUKA"
+          ],
+          "referedEntity" : [
+            "Studenti"
+          ],
+          "refered" : [
+            "STRUKA"
+          ]
+        }, {
+          "code" : "STUDENTSKI_PROGRAM_NA_TOKU_STUDIJA",
+          "name" : "studentski program na toku studija",
+          "reference" : [
+            "OZNAKA_PROGRAMA"
+          ],
+          "referedEntity" : [
+            "StudijskiProgrami"
+          ],
+          "refered" : [
+            "OZNAKA_PROGRAMA"
+          ]
+        } ]
+      } ]
+  },
+  {
+      "type" : "Package",
+      "name" : "Indeks-sekvencijalne",
+      "url"  : "indeks-sekvencijalne",
+      "collection" : [ {
+        "type" : "Entity",
+        "name" : "NastavniPredmeti",
+        "url"  : "NastavniPredmeti.stxt",
+        "url_tree": "NastavniPredmeti.tree",
+        "url_over": "NastavniPredmeti.over",
+        "database_type": "ind",
+        "attributes" : [ {
+          "type" : "Attribute",
+          "name" : "OZNAKA_PLANA",
+          "value_type" : "CHAR",
+          "length" : 2,
+          "mandatory" : true
+        }, {
+          "type" : "Attribute",
+          "name" : "SIFRA_PREDMETA",
+          "value_type" : "VARCHAR",
+          "length" : 5,
+          "mandatory" : true
+        }, {
+          "type" : "Attribute",
+          "name" : "NAZIV_PREDMETA",
+          "value_type" : "VARCHAR",
+          "length" : 80,
+          "mandatory" : false
+        }, {
+          "type" : "Attribute",
+          "name" : "TRAJE_SEMESTARA",
+          "value_type" : "NUMERIC",
+          "length" : 2,
+          "mandatory" : false
+        }, {
+          "type" : "Attribute",
+          "name" : "BROJ_KREDITA",
+          "value_type" : "NUMERIC",
+          "length" : 3,
+          "mandatory" : false
+        } ],
+        "relations" : [ ]
+      }, {
+        "type" : "Entity",
+        "name" : "PlanStudijskogPrograma",
+        "url"  : "PlanStudijskogPrograma.stxt",
+        "url_tree": "PlanStudijskogPrograma.tree",
+        "url_over": "PlanStudijskogPrograma.over",
+        "database_type": "ind",
+        "attributes" : [ {
+          "type" : "Attribute",
+          "name" : "OZNAKA_PROGRAMA",
+          "value_type" : "CHAR",
+          "length" : 4,
+          "mandatory" : true
+        }, {
+          "type" : "Attribute",
+          "name" : "OZNAKA_PLANA",
+          "value_type" : "CHAR",
+          "length" : 2,
+          "mandatory" : true
+        }, {
+          "type" : "Attribute",
+          "name" : "SIFRA_PREDMETA",
+          "value_type" : "VARCHAR",
+          "length" : 5,
+          "mandatory" : true
+        }, {
+          "type" : "Attribute",
+          "name" : "GODINA_PREDMETA",
+          "value_type" : "NUMERIC",
+          "length" : 1,
+          "mandatory" : false
+        }, {
+          "type" : "Attribute",
+          "name" : "SEMESTAR_PREDMETA",
+          "value_type" : "NUMERIC",
+          "length" : 2,
+          "mandatory" : false
+        } ],
+        "relations" : [ {
+          "code" : "STUDENTSKI_PROGRAM_NA_PLANU_STUDIJSKOG_PROGRAMA",
+          "name" : "studentski program na planu studentskog programa",
+          "reference" : [
+            "OZNAKA_PROGRAMA"
+          ],
+          "referedEntity" : [
+            "StudijskiProgrami"
+          ],
+          "refered" : [
+            "OZNAKA_PROGRAMA"
+          ]
+        }, {
+          "code" : "NASTAVNI_PROGRAM_NA_PLANU_STUDIJSKOG_PROGRAMA",
+          "name" : "nastani program na planu studijskog programa",
+          "reference" : [
+            "SIFRA_PREDMETA"
+          ],
+          "referedEntity" : [
+            "StudijskiProgrami"
+          ],
+          "refered" : [
+            "SIFRA_PREDMETA"
+          ]
+        } ]
+      }, {
+        "type" : "Entity",
+        "name" : "Studenti",
+        "url"  : "Studenti.stxt",
+        "url_tree": "Studenti.tree",
+        "url_over": "Studenti.over",
+        "database_type": "ind",
+        "attributes" : [ {
+          "type" : "Attribute",
+          "name" : "STRUKA",
+          "value_type" : "CHAR",
+          "length" : 1,
+          "mandatory" : true
+        }, {
+          "type" : "Attribute",
+          "name" : "BROJ INDEKSA",
+          "value_type" : "VARCHAR",
+          "length" : 6,
+          "mandatory" : true
+        }, {
+          "type" : "Attribute",
+          "name" : "PREZIME",
+          "value_type" : "VARCHAR",
+          "length" : 20,
+          "mandatory" : false
+        }, {
+          "type" : "Attribute",
+          "name" : "IME RODITELJA",
+          "value_type" : "VARCHAR",
+          "length" : 20,
+          "mandatory" : false
+        }, {
+          "type" : "Attribute",
+          "name" : "IME",
+          "value_type" : "VARCHAR",
+          "length" : 20,
+          "mandatory" : false
+        }, {
+          "type" : "Attribute",
+          "name" : "POL",
+          "value_type" : "CHAR",
+          "length" : 1,
+          "mandatory" : false
+        }, {
+          "type" : "Attribute",
+          "name" : "JMBG",
+          "value_type" : "VARCHAR",
+          "length" : 13,
+          "mandatory" : false
+        }, {
+          "type" : "Attribute",
+          "name" : "DATUM RODJENJA",
+          "value_type" : "DATETIME",
+          "length" : 25,
+          "mandatory" : false
+        }, {
+          "type" : "Attribute",
+          "name" : "ADRESA",
+          "value_type" : "VARCHAR",
+          "length" : 80,
+          "mandatory" : false
+        }, {
+          "type" : "Attribute",
+          "name" : "TELEFON",
+          "value_type" : "VARCHAR",
+          "length" : 20,
+          "mandatory" : false
+        } ],
+        "relations" : [ ]
+      }, {
+        "type" : "Entity",
+        "name" : "StudijskiProgrami",
+        "url"  : "StudijskiProgrami.stxt",
+        "url_tree": "StudijskiProgrami.tree",
+        "url_over": "StudijskiProgrami.over",
+        "database_type": "ind",
+        "attributes" : [ {
+          "type" : "Attribute",
+          "name" : "OZNAKA_PROGRAMA",
+          "value_type" : "CHAR",
+          "length" : 4,
+          "mandatory" : true
+        }, {
+          "type" : "Attribute",
+          "name" : "NAZIV_KOJI_SE_STICE",
+          "value_type" : "VARCHAR",
+          "length" : 80,
+          "mandatory" : false
+        }, {
+          "type" : "Attribute",
+          "name" : "NAZIV PROGRAMA",
+          "value_type" : "VARCHAR",
+          "length" : 80,
+          "mandatory" : false
+        } ],
+        "relations" : [ ]
+      }, {
+        "type" : "Entity",
+        "name" : "TokStudija",
+        "url"  : "TokStudija.stxt",
+        "url_tree": "TokStudija.tree",
+        "url_over": "TokStudija.over",
+        "database_type": "ind",
+        "attributes" : [ {
+          "type" : "Attribute",
+          "name" : "STRUKA",
+          "value_type" : "CHAR",
+          "length" : 1,
+          "mandatory" : true
+        }, {
+          "type" : "Attribute",
+          "name" : "BROJ INDEKSA",
+          "value_type" : "VARCHAR",
+          "length" : 6,
+          "mandatory" : true
+        }, {
+          "type" : "Attribute",
+          "name" : "OZNAKA_PROGRAMA",
+          "value_type" : "CHAR",
+          "length" : 4,
+          "mandatory" : true
+        }, {
+          "type" : "Attribute",
+          "name" : "SKOLSKA_GODINA",
+          "value_type" : "CHAR",
+          "length" : 4,
+          "mandatory" : true
+        }, {
+          "type" : "Attribute",
+          "name" : "GODINA_STUDIJA",
+          "value_type" : "NUMERIC",
+          "length" : 1,
+          "mandatory" : false
+        }, {
+          "type" : "Attribute",
+          "name" : "UPISUJE_PO_PLANU",
+          "value_type" : "CHAR",
+          "length" : 2,
+          "mandatory" : false
+        } ],
+        "relations" : [ {
+          "code" : "STUDENTI_NA_TOKU_STUDIJA",
+          "name" : "studenti na toku studija",
+          "reference" : [
+            "STRUKA"
+          ],
+          "referedEntity" : [
+            "Studenti"
+          ],
+          "refered" : [
+            "STRUKA"
+          ]
+        }, {
+          "code" : "STUDENTSKI_PROGRAM_NA_TOKU_STUDIJA",
+          "name" : "studentski program na toku studija",
+          "reference" : [
+            "OZNAKA_PROGRAMA"
+          ],
+          "referedEntity" : [
+            "StudijskiProgrami"
+          ],
+          "refered" : [
+            "OZNAKA_PROGRAMA"
+          ]
+        } ]
+      } ]
+  } ]
+}

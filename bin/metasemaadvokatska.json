@@ -1,0 +1,4305 @@
+{
+  "type": "Repository",
+  "name": "Državno agencijski informacioni sistem advokatske kancelarije",
+  "sql": true,
+  "url": "147.91.175.155/ui-2016-tim202.1",
+  "username":"ui-2016-tim202.1",
+  "password":"ui-2016-tim202.1.IoP994",
+  "collection": [
+    {
+      "type": "Entity",
+      "database_type": "sql",
+      "name": "Naselja u opštini",
+      "code": "NASELJA_U_OPSTINI",
+      "url": "URL",
+      "attributes": [
+        {
+          "type": "Attribute",
+          "name": "Nas_oznaka države",
+          "code": "NAS_DR_OZN",
+          "value_type": "VARCHAR",
+          "length": 4,
+          "primary-key": true,
+          "foreign-key-1": true,
+          "mandatory": true
+        },
+        {
+          "type": "Attribute",
+          "name": "Oznaka naseljenog mesta",
+          "code": "NM_OZNAKA",
+          "value_type": "INT",
+          "primary-key": true,
+          "foreign-key-1": true,
+          "mandatory": true
+        },
+        {
+          "type": "Attribute",
+          "name": "Oznaka države",
+          "code": "DR_OZNAKA",
+          "value_type": "varchar",
+          "length": 4,
+          "primary-key": true,
+          "foreign-key-2": true,
+          "mandatory": true
+        },
+        {
+          "type": "Attribute",
+          "name": "Oznaka lokalne samouprave",
+          "code": "OP_OZNAKA",
+          "value_type": "NUMERIC",
+          "length": 4,
+          "primary-key": true,
+          "foreign-key-2": true,
+          "mandatory": true
+        }
+      ],
+      "relations": [
+        {
+          "code": "NASELJA_U_OPSTINI",
+          "name": "Naselja u opštini",
+          "reference": [
+            "NAS_DR_OZNAKA",
+            "NM_OZNAKA"
+          ],
+          "referedEntity": [
+            "NASELJENA_MESTA"
+          ],
+          "refered": [
+            "NAS_DR_OZNAKA",
+            "NM_OZNAKA"
+          ]
+        },
+        {
+          "code": "NASELJA_U_OPSTINI2",
+          "name": "Naselja u opštini",
+          "reference": [
+            "DR_OZNAKA",
+            "OP_OZNAKA"
+          ],
+          "referedEntity": [
+            "LOKALNA_SAMOUPRAVA"
+          ],
+          "refered": [
+            "DR_OZNAKA",
+            "OP_OZNAKA"
+          ]
+        }
+      ]
+    },
+    {
+      "type": "Entity",
+      "database_type": "sql",
+      "name": "Naselja u regionu",
+      "code": "NASELJA_U_REGIONU",
+      "url": "URL",
+      "attributes": [
+        {
+          "type": "Attribute",
+          "name": "Oznaka države",
+          "code": "DR_OZNAKA",
+          "value_type": "VARCHAR",
+          "length": 4,
+          "primary-key": true,
+          "foreign-key-1": true,
+          "mandatory": true
+        },
+        {
+          "type": "Attribute",
+          "name": "Oznaka naseljenog mesta",
+          "code": "NM_OZNAKA",
+          "value_type": "INT",
+          "primary-key": true,
+          "foreign-key-1": true,
+          "mandatory": true
+        },
+        {
+          "type": "Attribute",
+          "name": "Oznaka tipa regiona",
+          "code": "REG_TIP",
+          "value_type": "CHAR",
+          "length": 4,
+          "primary-key": true,
+          "foreign-key-2": true,
+          "mandatory": true
+        },
+        {
+          "type": "Attribute",
+          "name": "Oznaka regiona",
+          "code": "RE_OZNAKA",
+          "value_type": "INT",
+          "primary-key": true,
+          "foreign-key-2": true,
+          "mandatory": true
+        }
+      ],
+      "relations": [
+        {
+          "code": "NASELJA_U_REGIONU2",
+          "name": "Naselja u regionu",
+          "reference": [
+            "REG_TIP",
+            "RE_OZNAKA"
+          ],
+          "referedEntity": [
+            "REGION"
+          ],
+          "refered": [
+            "REG_TIP",
+            "RE_OZNAKA"
+          ]
+        },
+        {
+          "code": "NASELJA_U_REGIONU",
+          "name": "Naselja u regionu",
+          "reference": [
+            "DR_OZNAKA",
+            "NM_OZNAKA"
+          ],
+          "referedEntity": [
+            "NASELJENA_MESTA"
+          ],
+          "refered": [
+            "DR_OZNAKA",
+            "NM_OZNAKA"
+          ]
+        }
+      ]
+    },
+    {
+      "type": "Entity",
+      "database_type": "sql",
+      "name": "Opštine u regionu",
+      "code": "OPSTINE_U_REGIONU",
+      "url": "URL",
+      "attributes": [
+        {
+          "type": "Attribute",
+          "name": "Oznaka države",
+          "code": "DR_OZNAKA",
+          "value_type": "VARCHAR",
+          "length": 4,
+          "primary-key": true,
+          "foreign-key-1": true,
+          "mandatory": true
+        },
+        {
+          "type": "Attribute",
+          "name": "Oznaka lokalne samouprave",
+          "code": "OP_OZNAKA",
+          "value_type": "NUMERIC",
+          "length": 3,
+          "primary-key": true,
+          "foreign-key-1": true,
+          "mandatory": true
+        },
+        {
+          "type": "Attribute",
+          "name": "Oznaka tipa regiona",
+          "code": "REG_TIP",
+          "value_type": "CHAR",
+          "length": 1,
+          "primary-key": true,
+          "foreign-key-1": true,
+          "mandatory": true
+        },
+        {
+          "type": "Attribute",
+          "name": "Oznaka regiona",
+          "code": "RE_OZNAKA",
+          "value_type": "INT",
+          "primary-key": true,
+          "foreign-key-1": true,
+          "mandatory": true
+        }
+      ],
+      "relations": [
+        {
+          "code": "OPSTINE_U_REGIONU",
+          "name": "Opštine u regionu",
+          "reference": [
+            "DR_OZNAKA",
+            "OP_OZNAKA"
+          ],
+          "referedEntity": [
+            "LOKALNA_SAMOUPRAVA"
+          ],
+          "refered": [
+            "DR_OZNAKA",
+            "OP_OZNAKA"
+          ]
+        },
+        {
+          "code": "OPSTINE_U_REGIONU2",
+          "name": "Opštine u regionu",
+          "reference": [
+            "REG_TIP"
+          ],
+          "referedEntity": [
+            "REGION"
+          ],
+          "refered": [
+            "REG_TIP"
+          ]
+        }
+      ]
+    },
+    {
+      "type": "Entity",
+      "database_type": "sql",
+      "name": "Sastav regiona",
+      "code": "SASTAV_REGIONA",
+      "url": "URL",
+      "attributes": [
+        {
+          "type": "Attribute",
+          "name": "Oznaka tipa regiona",
+          "code": "REG_TIP",
+          "value_type": "CHAR",
+          "length": 1,
+          "primary-key": true,
+          "foreign-key-1": true,
+          "mandatory": true
+        },
+        {
+          "type": "Attribute",
+          "name": "Oznaka regiona",
+          "code": "RE_OZNAKA",
+          "value_type": "INT",
+          "primary-key": true,
+          "foreign-key-1": true,
+          "mandatory": true
+        },
+        {
+          "type": "Attribute",
+          "name": "Reg_Oznaka tipa regiona",
+          "code": "REG_REG_TIP",
+          "value_type": "CHAR",
+          "length": 1,
+          "primary-key": true,
+          "foreign-key-1": true,
+          "mandatory": true
+        },
+        {
+          "type": "Attribute",
+          "name": "Reg_Oznaka regiona",
+          "code": "REG_RE_OZNAKA",
+          "value_type": "INT",
+          "primary-key": true,
+          "foreign-key-1": true,
+          "mandatory": true
+        }
+      ],
+      "relations": [
+        {
+          "code": "SASTAV_REGIONA",
+          "name": "Sastav regiona",
+          "reference": [
+            "REG_TIP",
+            "RE_OZNAKA"
+          ],
+          "referedEntity": [
+            "REGION"
+          ],
+          "refered": [
+            "REG_TIP",
+            "RE_OZNAKA"
+          ]
+        },
+        {
+          "code": "SASTAV_REGIONA2",
+          "name": "Sastav regiona2",
+          "reference": [
+            "REG_TIP",
+            "RE_OZNAKA"
+          ],
+          "referedEntity": [
+            "REGION"
+          ],
+          "refered": [
+            "REG_TIP",
+            "RE_OZNAKA"
+          ]
+        }
+      ]
+    },
+    {
+      "type": "Entity",
+      "database_type": "sql",
+      "name": "Državno uređenje",
+      "code": "DRZAVNO_URE_ENJE",
+      "url": "URL",
+      "attributes": [
+        {
+          "type": "Attribute",
+          "name": "Oznaka državnog uređenja",
+          "code": "DU_OZNAKA",
+          "value_type": "CHAR",
+          "length": 1,
+          "primary-key": true,
+          "mandatory": true
+        },
+        {
+          "type": "Attribute",
+          "name": "Naziv",
+          "code": "DU_NAZIV",
+          "value_type": "VARCHAR",
+          "length": 60,
+          "mandatory": true
+        }
+      ],
+      "relations": []
+    },
+    {
+      "type": "Entity",
+      "database_type": "sql",
+      "name": "Istorijat uređenja",
+      "code": "ISTORIJAT_URE_ENJA",
+      "url": "URL",
+      "attributes": [
+        {
+          "type": "Attribute",
+          "name": "Redni broj",
+          "code": "URE_REDNI_BROJ",
+          "value_type": "NUMERIC",
+          "length": 2,
+          "primary-key": true,
+          "mandatory": true
+        },
+        {
+          "type": "Attribute",
+          "name": "Oznaka države",
+          "code": "DR_OZNAKA",
+          "value_type": "VARCHAR",
+          "length": 4,
+          "primary-key": true,
+          "foreign-key-1": true,
+          "mandatory": true
+        },
+        {
+          "type": "Attribute",
+          "name": "Od",
+          "code": "URE_OD",
+          "value_type": "DATETIME",
+          "mandatory": true
+        },
+        {
+          "type": "Attribute",
+          "name": "DO",
+          "code": "URE_DO",
+          "value_type": "DATETIME",
+          "mandatory": false
+        },
+        {
+          "type": "Attribute",
+          "name": "Oznaka državnog uređenja",
+          "code": "DU_OZNAKA",
+          "value_type": "CHAR",
+          "length": 1,
+          "foreign-key-2": true,
+          "mandatory": true
+        }
+      ],
+      "relations": [
+        {
+          "code": "DRZAVA",
+          "name": "Država",
+          "reference": [
+            "DR_OZNAKA"
+          ],
+          "referedEntity": [
+            "DRZAVA"
+          ],
+          "refered": [
+            "DR_OZNAKA"
+          ]
+        },
+        {
+          "code": "URE_ENJE_DRZAVE",
+          "name": "Uređenje države",
+          "reference": [
+            "DU_OZNAKA"
+          ],
+          "referedEntity": [
+            "DRZAVNO_URE_ENJE"
+          ],
+          "refered": [
+            "DU_OZNAKA"
+          ]
+        }
+      ]
+    },
+    {
+      "type": "Entity",
+      "database_type": "sql",
+      "name": "Država",
+      "code": "DRZAVA",
+      "url": "URL",
+      "attributes": [
+        {
+          "type": "Attribute",
+          "name": "Oznaka države",
+          "code": "DR_OZNAKA",
+          "value_type": "VARCHAR",
+          "length": 4,
+          "primary-key": true,
+          "mandatory": true
+        },
+        {
+          "type": "Attribute",
+          "name": "Naziv",
+          "code": "DR_NAZIV",
+          "value_type": "VARCHAR",
+          "length": 80,
+          "mandatory": true
+        },
+        {
+          "type": "Attribute",
+          "name": "Grb",
+          "code": "DR_GRB",
+          "value_type": "IMAGE",
+          "mandatory": false
+        },
+        {
+          "type": "Attribute",
+          "name": "Zastava",
+          "code": "DR_ZASTAVA",
+          "value_type": "IMAGE",
+          "mandatory": false
+        },
+        {
+          "type": "Attribute",
+          "name": "Himna",
+          "code": "DR_HIMNA",
+          "value_type": "IMAGE",
+          "mandatory": false
+        },
+        {
+          "type": "Attribute",
+          "name": "Nas_Oznaka države",
+          "code": "NAS_DR_OZNAKA",
+          "value_type": "VARCHAR",
+          "length": 4,
+          "foreign-key-1": true,
+          "mandatory": false
+        },
+        {
+          "type": "Attribute",
+          "name": "Oznaka naseljenog mesta",
+          "code": "NM_OZNAKA",
+          "value_type": "INT",
+          "foreign-key-1": true,
+          "mandatory": false
+        },
+        {
+          "type": "Attribute",
+          "name": "Oznaka državnog uređenja",
+          "code": "DU_OZNAKA",
+          "value_type": "CHAR",
+          "length": 1,
+          "foreign-key-2": true,
+          "mandatory": false
+        }
+      ],
+      "relations": [
+        {
+          "code": "TEKUCE_URE_ENJE",
+          "name": "Tekuće uređenje",
+          "reference": [
+            "DU_OZNAKA"
+          ],
+          "referedEntity": [
+            "DRZAVNO_URE_ENJE"
+          ],
+          "refered": [
+            "DU_OZNAKA"
+          ]
+        },
+        {
+          "code": "GLAVNI_GRAD",
+          "name": "Glavni grad",
+          "reference": [
+            "DR_OZNAKA",
+            "NM_OZNAKA"
+          ],
+          "referedEntity": [
+            "NASELJENA_MESTA"
+          ],
+          "refered": [
+            "DR_OZNAKA",
+            "NM_OZNAKA"
+          ]
+        }
+      ]
+    },
+    {
+      "type": "Entity",
+      "database_type": "sql",
+      "name": "Složena država",
+      "code": "SLOZENA_DRZAVA",
+      "url": "URL",
+      "attributes": [
+        {
+          "type": "Attribute",
+          "name": "Koji put",
+          "code": "SL_KOJI_PUT",
+          "value_type": "NUMERIC",
+          "length": 1,
+          "primary-key": true,
+          "mandatory": true
+        },
+        {
+          "type": "Attribute",
+          "name": "Drž_Oznaka države",
+          "code": "DRZ_DR_OZNAKA",
+          "value_type": "VARCHAR",
+          "length": 4,
+          "primary-key": true,
+          "foreign-key-1": true,
+          "mandatory": true
+        },
+        {
+          "type": "Attribute",
+          "name": "Oznaka države",
+          "code": "DR_OZNAKA",
+          "value_type": "VARCHAR",
+          "length": 4,
+          "primary-key": true,
+          "foreign-key-2": true,
+          "mandatory": true
+        },
+        {
+          "type": "Attribute",
+          "name": "Od",
+          "code": "SL_OD",
+          "value_type": "DATETIME",
+          "mandatory": true
+        },
+        {
+          "type": "Attribute",
+          "name": "Do",
+          "code": "SL_DO",
+          "value_type": "DATETIME"
+        }
+      ],
+      "relations": [
+        {
+          "code": "SLOZENA_DRZAVA",
+          "name": "Složena država",
+          "reference": [
+            "DRZ_DR_OZNAKA"
+          ],
+          "referedEntity": [
+            "DRZAVA"
+          ],
+          "refered": [
+            "DR_OZNAKA"
+          ]
+        },
+		{
+          "code": "DRZAVA_U_SASTAVU",
+          "name": "Država u sastavu",
+          "reference": [
+            "DR_OZNAKA"
+          ],
+          "referedEntity": [
+            "DRZAVA"
+          ],
+          "refered": [
+            "DR_OZNAKA"
+          ]
+        }
+      ]
+    },
+    {
+      "type": "Entity",
+      "database_type": "sql",
+      "name": "Naseljena mesta",
+      "code": "NASELJENA_MESTA",
+      "url": "URL",
+      "attributes": [
+        {
+          "type": "Attribute",
+          "name": "Oznaka naseljenog mesta",
+          "code": "NM_OZNAKA",
+          "value_type": "INT",
+          "primary-key": true,
+          "mandatory": true
+        },
+        {
+          "type": "Attribute",
+          "name": "Oznaka države",
+          "code": "DR_OZNAKA",
+          "value_type": "VARCHAR",
+          "length": 4,
+          "primary-key": true,
+          "foreign-key": true,
+          "mandatory": true
+        },
+        {
+          "type": "Attribute",
+          "name": "Naziv",
+          "code": "NM_NAZIV",
+          "value_type": "VARCHAR",
+          "length": 80,
+          "mandatory": true
+        },
+        {
+          "type": "Attribute",
+          "name": "Grad",
+          "code": "NM_GRAD",
+          "value_type": "BIT",
+          "mandatory": true
+        }
+      ],
+      "relations": [
+        {
+          "code": "NASELJA_U_DRZAVI",
+          "name": "Naselja u državi",
+          "reference": [
+            "DR_OZNAKA"
+          ],
+          "referedEntity": [
+            "DRZAVA"
+          ],
+          "refered": [
+            "DR_OZNAKA"
+          ]
+        }
+      ]
+    },
+    {
+      "type": "Entity",
+      "database_type": "sql",
+      "name": "Lokalna samouprava",
+      "code": "LOKALNA_SAMOUPRAVA",
+      "url": "URL",
+      "attributes": [
+        {
+          "type": "Attribute",
+          "name": "Oznaka lokalne samouprave",
+          "code": "OP_OZNAKA",
+          "value_type": "NUMERIC",
+          "length": 3,
+          "primary-key": true,
+          "mandatory": true
+        },
+        {
+          "type": "Attribute",
+          "name": "Oznaka države",
+          "code": "DR_OZNAKA",
+          "value_type": "VARCHAR",
+          "length": 4,
+          "primary-key": true,
+          "foreign-key-1": true,
+          "mandatory": true
+        },
+        {
+          "type": "Attribute",
+          "name": "Naziv",
+          "code": "OP_NAZIV",
+          "value_type": "VARCHAR",
+          "length": 120,
+          "mandatory": true
+        },
+        {
+          "type": "Attribute",
+          "name": "Nas_Oznaka države",
+          "code": "NAS_DR_OZNAKA",
+          "value_type": "VARCHAR",
+          "length": 4,
+          "foreign-key-2": true,
+          "mandatory": true
+        },
+        {
+          "type": "Attribute",
+          "name": "Oznaka naseljenog mesta",
+          "code": "NM_OZNAKA",
+          "value_type": "INT",
+          "foreign-key-2": true,
+          "mandatory": true
+        }
+      ],
+      "relations": [
+        {
+          "code": "LOKAL",
+          "name": "Lokal",
+          "reference": [
+            "DR_OZNAKA"
+          ],
+          "referedEntity": [
+            "DRZAVA"
+          ],
+          "refered": [
+            "DR_OZNAKA"
+          ]
+        },
+        {
+          "code": "ADMINISTRATIVNO_SEDISTE",
+          "name": "Administrativno sedište",
+          "reference": [
+            "DR_OZNAKA",
+            "NM_OZNAKA"
+          ],
+          "referedEntity": [
+            "NASELJENA_MESTA"
+          ],
+          "refered": [
+            "DR_OZNAKA",
+            "NM_OZNAKA"
+          ]
+        }
+      ]
+    },
+    {
+      "type": "Entity",
+      "database_type": "sql",
+      "name": "Mesna zajednica",
+      "code": "MESNA_ZAJEDNICA",
+      "url": "URL",
+      "attributes": [
+        {
+          "type": "Attribute",
+          "name": "Oznaka mesne zajednice",
+          "code": "MZ_OZNAKA",
+          "value_type": "CHAR",
+          "length": 2,
+          "primary-key": true,
+          "mandatory": true
+        },
+        {
+          "type": "Attribute",
+          "name": "Oznaka države",
+          "code": "DR_OZNAKA",
+          "value_type": "VARCHAR",
+          "length": 4,
+          "primary-key": true,
+          "foreign-key-1": true,
+          "mandatory": true
+        },
+        {
+          "type": "Attribute",
+          "name": "Oznaka lokalne samouprave",
+          "code": "OP_OZNAKA",
+          "value_type": "NUMERIC",
+          "length": 3,
+          "primary-key": true,
+          "foreign-key-1": true,
+          "mandatory": true
+        },
+        {
+          "type": "Attribute",
+          "name": "Naziv",
+          "code": "MZ_NAZIV",
+          "value_type": "VARCHAR",
+          "length": 80,
+          "mandatory": true
+        },
+        {
+          "type": "Attribute",
+          "name": "Nas_Oznaka države",
+          "code": "NAS_DR_OZNAKA",
+          "value_type": "VARCHAR",
+          "length": 4,
+          "foreign-key-2": true,
+          "mandatory": true
+        },
+        {
+          "type": "Attribute",
+          "name": "Oznaka naseljenog mesta",
+          "code": "NM_OZNAKA",
+          "value_type": "INT",
+          "length": 3,
+          "foreign-key-2": true,
+          "mandatory": true
+        }
+      ],
+      "relations": [
+        {
+          "code": "SADRZI_MESNE_ZAJEDNICE",
+          "name": "Sadrži mesne zajednice",
+          "reference": [
+            "DR_OZNAKA",
+            "OP_OZNAKA"
+          ],
+          "referedEntity": [
+            "LOKALNA_SAMOUPRAVA"
+          ],
+          "refered": [
+            "DR_OZNAKA",
+            "OP_OZNAKA"
+          ]
+        },
+        {
+          "code": "MESNA_KANCELARIJA",
+          "name": "Mesna kancelarija",
+          "reference": [
+            "DR_OZNAKA",
+            "NM_OZNAKA"
+          ],
+          "referedEntity": [
+            "NASELJENA_MESTA"
+          ],
+          "refered": [
+            "DR_OZNAKA",
+            "NM_OZNAKA"
+          ]
+        }
+      ]
+    },
+    {
+      "type": "Entity",
+      "database_type": "sql",
+      "name": "Tip regiona",
+      "code": "TIP_REGIONA",
+      "url": "URL",
+      "attributes": [
+        {
+          "type": "Attribute",
+          "name": "Oznaka tipa regiona",
+          "code": "REG_TIP",
+          "value_type": "CHAR",
+          "length": 1,
+          "primary-key": true,
+          "mandatory": true
+        },
+        {
+          "type": "Attribute",
+          "name": "Naziv",
+          "code": "REG_NAZIV",
+          "value_type": "VARCHAR",
+          "length": 60,
+          "mandatory": true
+        }
+      ],
+      "relations": []
+    },
+    {
+      "type": "Entity",
+      "database_type": "sql",
+      "name": "Region",
+      "code": "REGION",
+      "url": "URL",
+      "attributes": [
+        {
+          "type": "Attribute",
+          "name": "Oznaka regiona",
+          "code": "RE_OZNAKA",
+          "value_type": "INT",
+          "primary-key": true,
+          "mandatory": true
+        },
+        {
+          "type": "Attribute",
+          "name": "Oznaka tipa regiona",
+          "code": "REG_TIP",
+          "value_type": "CHAR",
+          "length": 1,
+          "primary-key": true,
+          "foreign-key-1": true,
+          "mandatory": true
+        },
+        {
+          "type": "Attribute",
+          "name": "Naziv",
+          "code": "RE_NAZIV",
+          "value_type": "VARCHAR",
+          "length": 80,
+          "mandatory": true
+        },
+        {
+          "type": "Attribute",
+          "name": "Oznaka države",
+          "code": "DR_OZNAKA",
+          "value_type": "VARCHAR",
+          "length": 4,
+          "foreign-key-2": true,
+          "mandatory": false
+        },
+        {
+          "type": "Attribute",
+          "name": "Nas_Oznaka države",
+          "code": "NAS_DR_OZNAKA",
+          "value_type": "VARCHAR",
+          "length": 4,
+          "foreign-key-3": true,
+          "mandatory": false
+        },
+        {
+          "type": "Attribute",
+          "name": "Oznaka naseljenog mesta",
+          "code": "NM_OZNAKA",
+          "value_type": "INT",
+          "foreign-key-3": true,
+          "mandatory": false
+        }
+      ],
+      "relations": [
+        {
+          "code": "MATICNA_DRZAVA",
+          "name": "Matična država",
+          "reference": [
+            "DR_OZNAKA"
+          ],
+          "referedEntity": [
+            "DRZAVA"
+          ],
+          "refered": [
+            "DR_OZNAKA"
+          ]
+        },
+        {
+          "code": "SEDISTE_REGIONA",
+          "name": "Sedište regiona",
+          "reference": [
+            "DR_OZNAKA",
+            "NM_OZNAKA"
+          ],
+          "referedEntity": [
+            "NASELJENA_MESTA"
+          ],
+          "refered": [
+            "DR_OZNAKA",
+            "NM_OZNAKA"
+          ]
+        },
+        {
+          "code": "TIPIZACIJA_REGIONA",
+          "name": "Tipizacija regiona",
+          "reference": [
+            "REG_TIP"
+          ],
+          "referedEntity": [
+            "TIP_REGIONA"
+          ],
+          "refered": [
+            "REG_TIP"
+          ]
+        }
+      ]
+    },
+    {
+      "type": "Entity",
+      "database_type": "sql",
+      "name": "Advokatska kancelarija",
+      "code": "ADVOKATSKA_KANCELARIJA",
+      "attributes": [
+        {
+          "type": "Attribute",
+          "name": "Mb advokatske kancelarije",
+          "code": "AK_MB",
+          "value_type": "VARCHAR",
+          "length": 30,
+          "primary-key": true,
+          "mandatory": true
+        },
+        {
+          "type": "Attribute",
+          "name": "Oznaka države",
+          "code": "DR_OZNAKA",
+          "value_type": "VARCHAR",
+          "length": 4,
+          "primary-key": true,
+          "foreign-key-1": true,
+          "foreign-key-2": true,
+          "mandatory": true
+        },
+        {
+          "type": "Attribute",
+          "name": "Naziv advokatske kancelarije",
+          "code": "AK_NAZIV",
+          "value_type": "VARCHAR",
+          "length": 50,
+          "mandatory": true
+        },
+        {
+          "type": "Attribute",
+          "name": "Pib advokatske kancelarije",
+          "code": "AK_PIB",
+          "value_type": "VARCHAR",
+          "length": 30,
+          "mandatory": true
+        },
+        {
+          "type": "Attribute",
+          "name": "Adresa",
+          "code": "AK_ADRESA",
+          "value_type": "VARCHAR",
+          "length": 256,
+          "mandatory": true
+        },
+        {
+          "type": "Attribute",
+          "name": "Datum оsnivanja",
+          "code": "AK_DAT_OSN",
+          "value_type": "DATETIME",
+          "mandatory": true
+        },
+        {
+          "type": "Attribute",
+          "name": "Oznaka naseljenog mesta",
+          "code": "NM_OZNAKA",
+          "value_type": "INT",
+          "mandatory": true
+        }
+      ],
+      "relations": [
+        {
+          "code": "SEDISTE_U",
+          "name": "Sedište u",
+          "reference": [
+            "DR_OZNAKA",
+            "NM_OZNAKA"
+          ],
+          "referedEntity": [
+            "NASELJENA_MESTA"
+          ],
+          "refered": [
+            "DR_OZNAKA",
+            "NM_OZNAKA"
+          ]
+        },
+        {
+          "code": "REGISTROVANA_U",
+          "name": "Registrovana u",
+          "reference": [
+            "DR_OZNAKA"
+          ],
+          "referedEntity": [
+            "DRZAVA"
+          ],
+          "refered": [
+            "DR_OZNAKA"
+          ]
+        }
+      ]
+    },
+    {
+      "type": "Entity",
+      "database_type": "sql",
+      "name": "Žiro računi advokatske kancelarije",
+      "code": "ZIRO_RACUNI_ADVOKATSKE_KANCELARIJE",
+      "url": "URL",
+      "attributes": [
+        {
+          "type": "Attribute",
+          "name": "Redni broj žiro računa",
+          "code": "ZIR_RBR",
+          "value_type": "BIGINT",
+          "primary-key": true,
+          "mandatory": true
+        },
+        {
+          "type": "Attribute",
+          "name": "Oznaka države",
+          "code": "DR_OZNAKA",
+          "value_type": "VARCHAR",
+          "length": 4,
+          "primary-key": true,
+          "foreign-key": true,
+          "mandatory": true
+        },
+        {
+          "type": "Attribute",
+          "name": "Mb advokatske kancelarije",
+          "code": "AK_MB",
+          "value_type": "VARCHAR",
+          "length": 30,
+          "primary-key": true,
+          "foreign-key": true,
+          "mandatory": true
+        },
+        {
+          "type": "Attribute",
+          "name": "Broj žiro računa",
+          "code": "ZIR_ZIR_RAC",
+          "value_type": "CHAR",
+          "length": 18,
+          "mandatory": true
+        },
+        {
+          "type": "Attribute",
+          "name": "Opis žiro računa",
+          "code": "ZIR_OPIS",
+          "value_type": "VARCHAR",
+          "length": 1000,
+          "mandatory": false
+        }
+      ],
+      "relations": [
+        {
+          "code": "DODELA_ZIRO_RACUNA",
+          "name": "Dodela žiro računa",
+          "reference": [
+            "DR_OZNAKA",
+            "AK_MB"
+          ],
+          "referedEntity": [
+            "ADVOKATSKA_KANCELARIJA"
+          ],
+          "refered": [
+            "DR_OZNAKA",
+            "AK_MB"
+          ]
+        }
+      ]
+    },
+    {
+      "type": "Entity",
+      "database_type": "sql",
+      "name": "Emailovi advokatske kancelarije",
+      "code": "EMAILOVI_ADVOKATSKE_KANCELARIJE",
+      "url": "URL",
+      "attributes": [
+        {
+          "type": "Attribute",
+          "name": "Redni broj email-a",
+          "code": "EM_RBR",
+          "value_type": "BIGINT",
+          "length": 4,
+          "primary-key": true,
+          "mandatory": true
+        },
+        {
+          "type": "Attribute",
+          "name": "Oznaka države",
+          "code": "DR_OZNAKA",
+          "value_type": "VARCHAR",
+          "length": 4,
+          "primary-key": true,
+          "foreign-key": true,
+          "mandatory": true
+        },
+        {
+          "type": "Attribute",
+          "name": "Mb advokatske kancelarije",
+          "code": "AK_MB",
+          "value_type": "VARCHAR",
+          "length": 30,
+          "primary-key": true,
+          "foreign-key": true,
+          "mandatory": true
+        },
+        {
+          "type": "Attribute",
+          "name": "Email",
+          "code": "EM_EMAIL",
+          "value_type": "VARCHAR",
+          "length": 254,
+          "mandatory": true
+        },
+        {
+          "type": "Attribute",
+          "name": "Opis email-a",
+          "code": "EM_OPIS",
+          "value_type": "VARCHAR",
+          "length": 1000,
+          "mandatory": false
+        }
+      ],
+      "relations": [
+        {
+          "code": "DODELA_EMAIL_NALOGA",
+          "name": "Dodela email naloga",
+          "reference": [
+            "DR_OZNAKA",
+            "AK_MB"
+          ],
+          "referedEntity": [
+            "ADVOKATSKA_KANCELARIJA"
+          ],
+          "refered": [
+            "DR_OZNAKA",
+            "AK_MB"
+          ]
+        }
+      ]
+    },
+    {
+      "type": "Entity",
+      "database_type": "sql",
+      "name": "Tipovi telefona",
+      "code": "TIPOVI_TELEFONA",
+      "url": "URL",
+      "attributes": [
+        {
+          "type": "Attribute",
+          "name": "Oznaka tipa telefona",
+          "code": "TT_OZNAKA",
+          "value_type": "CHAR",
+          "length": 2,
+          "primary-key": true,
+          "mandatory": true
+        },
+        {
+          "type": "Attribute",
+          "name": "Oznaka države",
+          "code": "DR_OZNAKA",
+          "value_type": "VARCHAR",
+          "length": 4,
+          "primary-key": true,
+          "foreign-key": true,
+          "mandatory": true
+        },
+        {
+          "type": "Attribute",
+          "name": "Naziv tipa telefona",
+          "code": "TT_NAZIV",
+          "value_type": "VARCHAR",
+          "length": 25,
+          "mandatory": true
+        },
+        {
+          "type": "Attribute",
+          "name": "Opis tipa telefona",
+          "code": "TT_OPIS",
+          "value_type": "VARCHAR",
+          "length": 1000,
+          "mandatory": false
+        }
+      ],
+      "relations": [
+        {
+          "code": "DRZAVA_IMA_SIFARNIK_TIPOVA_TELEFONA",
+          "name": "Država ima šifarnik tipova telefona",
+          "reference": [
+            "DR_OZNAKA"
+          ],
+          "referedEntity": [
+            "DRZAVA"
+          ],
+          "refered": [
+            "DR_OZNAKA"
+          ]
+        }
+      ]
+    },
+    {
+      "type": "Entity",
+      "database_type": "sql",
+      "name": "Telefoni advokatske kancelarije",
+      "code": "TELEFONI_ADVOKATSKE_KANCELARIJE",
+      "url": "URL",
+      "attributes": [
+        {
+          "type": "Attribute",
+          "name": "Rednibrojtelefona",
+          "code": "TL_RBR",
+          "value_type": "INT",
+          "primary-key": true,
+          "mandatory": true
+        },
+        {
+          "type": "Attribute",
+          "name": "Mb advokatske kancelarije",
+          "code": "AK_MB",
+          "value_type": "VARCHAR",
+          "length": 30,
+          "primary-key": true,
+          "foreign-key-1": true,
+          "mandatory": true
+        },
+        {
+          "type": "Attribute",
+          "name": "Oznaka države",
+          "code": "ADV_DR_OZNAKA",
+          "value_type": "VARCHAR",
+          "length": 4,
+          "primary-key": true,
+          "foreign-key-1": true,
+          "foreign-key-2": true,
+          "mandatory": true
+        },
+        {
+          "type": "Attribute",
+          "name": "Broj telefona",
+          "code": "BROJ",
+          "value_type": "VARCHAR",
+          "length": 50,
+          "mandatory": true
+        },
+        {
+          "type": "Attribute",
+          "name": "Opis telefona",
+          "code": "AK_TEL_OPIS",
+          "value_type": "VARCHAR",
+          "length": 1000,
+          "mandatory": false
+        },
+        {
+          "type": "Attribute",
+          "name": "Oznaka tipa telefona",
+          "code": "TT_OZNAKA",
+          "value_type": "CHAR",
+          "length": 2,
+          "foreign-key-2": true,
+          "mandatory": true
+        }
+      ],
+      "relations": [
+        {
+          "code": "DODELA_TELEFONA",
+          "name": "Dodela telefona",
+          "reference": [
+            "ADV_DR_OZNAKA",
+            "AK_MB"
+          ],
+          "referedEntity": [
+            "ADVOKATSKA_KANCELARIJA"
+          ],
+          "refered": [
+            "ADV_DR_OZNAKA",
+            "AK_MB"
+          ]
+        },
+        {
+          "code": "DODELA_TIPA_TELEFONA",
+          "name": "Dodela tipa telefona",
+          "reference": [
+            "ADV_DR_OZNAKA",
+            "TT_OZNAKA"
+          ],
+          "referedEntity": [
+            "TIPOVI_TELEFONA"
+          ],
+          "refered": [
+            "ADV_DR_OZNAKA",
+            "TT_OZNAKA"
+          ]
+        }
+      ]
+    },
+    {
+      "type": "Entity",
+      "database_type": "sql",
+      "name": "Tipovi radnog odnosa",
+      "code": "TIPOVI_RADNOG_ODNOSA",
+      "url": "URL",
+      "attributes": [
+        {
+          "type": "Attribute",
+          "name": "Oznaka tipa radnog odnosa",
+          "code": "TR_OZNAKA",
+          "value_type": "CHAR",
+          "length": 1,
+          "primary-key": true,
+          "mandatory": true
+        },
+        {
+          "type": "Attribute",
+          "name": "Oznaka države",
+          "code": "DR_OZNAKA",
+          "value_type": "VARCHAR",
+          "length": 4,
+          "primary-key": true,
+          "foreign-key": true,
+          "mandatory": true
+        },
+        {
+          "type": "Attribute",
+          "name": "Naziv tipa radnog odnosa",
+          "code": "TR_NAZIV",
+          "value_type": "VARCHAR",
+          "length": 25,
+          "mandatory": true
+        },
+        {
+          "type": "Attribute",
+          "name": "Opis tipa radnog odnosa",
+          "code": "TR_OPIS",
+          "value_type": "VARCHAR",
+          "length": 256,
+          "mandatory": true
+        }
+      ],
+      "relations": [
+        {
+          "code": "DRZAVA_IMA_SIFARNIK_TIPOVA_RADNOG_ODNOSA",
+          "name": "Država ima šifarnik tipova radnog odnosa",
+          "reference": [
+            "DR_OZNAKA"
+          ],
+          "referedEntity": [
+            "DRZAVA"
+          ],
+          "refered": [
+            "DR_OZNAKA"
+          ]
+        }
+      ]
+    },
+    {
+      "type": "Entity",
+      "database_type": "sql",
+      "name": "Radni Odnos",
+      "code": "RADNIODNOS",
+      "url": "URL",
+      "attributes": [
+        {
+          "type": "Attribute",
+          "name": "Redni broj radnog odnosa sa zaposlenim",
+          "code": "RD_RBR",
+          "value_type": "BIGINT",
+          "primary-key": true,
+          "mandatory": true
+        },
+        {
+          "type": "Attribute",
+          "name": "Oznaka države zaposlenog",
+          "code": "ZAP_DR_OZNAKA",
+          "value_type": "VARCHAR",
+          "length": 4,
+          "primary-key": true,
+          "foreign-key-2": true,
+          "mandatory": true
+        },
+        {
+          "type": "Attribute",
+          "name": "JMBG",
+          "code": "ZAP_JMBG",
+          "value_type": "VARCHAR",
+          "length": 30,
+          "primary-key": true,
+          "foreign-key-2": true,
+          "mandatory": true
+        },
+        {
+          "type": "Attribute",
+          "name": "Mb advokatske kancelarije",
+          "code": "AK_MB",
+          "value_type": "VARCHAR",
+          "length": 30,
+          "primary-key": true,
+          "foreign-key-3": true,
+          "mandatory": true
+        },
+        {
+          "type": "Attribute",
+          "name": "Oznaka države advokatske kancelarije",
+          "code": "ADV_DR_OZNAKA",
+          "value_type": "VARCHAR",
+          "length": 4,
+          "primary-key": true,
+          "foreign-key-1": true,
+          "foreign-key-3": true,
+          "foreign-key-4": true,
+          "mandatory": true
+        },
+        {
+          "type": "Attribute",
+          "name": "Od",
+          "code": "RD_OD",
+          "value_type": "DATETIME",
+          "mandatory": true
+        },
+        {
+          "type": "Attribute",
+          "name": "Do",
+          "code": "RD_DO",
+          "value_type": "DATETIME",
+          "mandatory": false
+        },
+        {
+          "type": "Attribute",
+          "name": "Oznaka radnog mesta",
+          "code": "SIF_OZNAKA",
+          "value_type": "CHAR",
+          "length": 2,
+          "foreign-key-1": true,
+          "mandatory": false
+        },
+        {
+          "type": "Attribute",
+          "name": "Oznaka tipa radnog odnosa",
+          "code": "TR_OZNAKA",
+          "value_type": "CHAR",
+          "length": 1,
+          "foreign-key-4": true,
+          "mandatory": true
+        }
+      ],
+      "relations": [
+        {
+          "code": "TIP_RADNOG_ODNOSA_SA_ZAPOSLENIM",
+          "name": "Tip radnog odnosa sa zaposlenim",
+          "reference": [
+            "ADV_DR_OZNAKA",
+            "TR_OZNAKA"
+          ],
+          "referedEntity": [
+            "TIPOVI_RADNOG_ODNOSA"
+          ],
+          "refered": [
+            "ADV_DR_OZNAKA",
+            "TR_OZNAKA"
+          ]
+        },
+        {
+          "code": "ZAPOSLENI",
+          "name": "Zaposleni",
+          "reference": [
+            "ZAP_DR_OZNAKA",
+            "ZAP_JMBG"
+          ],
+          "referedEntity": [
+            "ZAPOSLENI"
+          ],
+          "refered": [
+            "ZAP_DR_OZNAKA",
+            "ZAP_JMBG"
+          ]
+        },
+        {
+          "code": "PRIJAVLJEN_NA_RADNU_POZICIJU",
+          "name": "Prijavljen na radnu poziciju",
+          "reference": [
+            "ADV_DR_OZNAKA",
+            "SIF_OZNAKA"
+          ],
+          "referedEntity": [
+            "SIFARNIK_RADNIH_MESTA"
+          ],
+          "refered": [
+            "ADV_DR_OZNAKA",
+            "SIF_OZNAKA"
+          ]
+        },
+        {
+          "code": "ZAPOSLEN_U",
+          "name": "Zaposlen u",
+          "reference": [
+            "ADV_DR_OZNAKA",
+            "AK_MB"
+          ],
+          "referedEntity": [
+            "ADVOKATSKA_KANCELARIJA"
+          ],
+          "refered": [
+            "ADV_DR_OZNAKA",
+            "AK_MB"
+          ]
+        }
+      ]
+    },
+    {
+      "type": "Entity",
+      "database_type": "sql",
+      "name": "Zaposleni",
+      "code": "ZAPOSLENI",
+      "url": "URL",
+      "attributes": [
+        {
+          "type": "Attribute",
+          "name": "JMBG",
+          "code": "ZAP_JMBG",
+          "value_type": "VARCHAR",
+          "length": 30,
+          "primary-key": true,
+          "mandatory": true
+        },
+        {
+          "type": "Attribute",
+          "name": "Oznaka države",
+          "code": "DR_OZNAKA",
+          "value_type": "VARCHAR",
+          "length": 4,
+          "primary-key": true,
+          "foreign-key-2": true,
+          "mandatory": true
+        },
+        {
+          "type": "Attribute",
+          "name": "Oznaka države",
+          "code": "DR_OZNAKA",
+          "value_type": "VARCHAR",
+          "length": 4,
+          "primary-key": true,
+          "foreign-key-2": true,
+          "mandatory": true
+        },
+        {
+          "type": "Attribute",
+          "name": "Ime",
+          "code": "ZAP_IME",
+          "value_type": "VARCHAR",
+          "length": 50,
+          "mandatory": true
+        },
+        {
+          "type": "Attribute",
+          "name": "Prezime",
+          "code": "ZAP_PREZIME",
+          "value_type": "VARCHAR",
+          "length": 100,
+          "mandatory": true
+        },
+        {
+          "type": "Attribute",
+          "name": "Prezime",
+          "code": "ZAP_PREZIME",
+          "value_type": "VARCHAR",
+          "length": 100,
+          "mandatory": true
+        },
+        {
+          "type": "Attribute",
+          "name": "Datum rođenja",
+          "code": "DAT_RODJ",
+          "value_type": "DATETIME",
+          "mandatory": true
+        },
+        {
+          "type": "Attribute",
+          "name": "Adresa",
+          "code": "ZAP_ADRESA",
+          "value_type": "VARCHAR",
+          "length": 256,
+          "mandatory": true
+        },
+        {
+          "type": "Attribute",
+          "name": "Email",
+          "code": "ZAP_EMAIL",
+          "value_type": "VARCHAR",
+          "length": 254,
+          "mandatory": true
+        },
+        {
+          "type": "Attribute",
+          "name": "Broj žiro računa",
+          "code": "ZAP_ZIR",
+          "value_type": "CHAR",
+          "length": 18,
+          "mandatory": true
+        },
+        {
+          "type": "Attribute",
+          "name": "Broj telefona",
+          "code": "ZAP_TEL",
+          "value_type": "VARCHAR",
+          "length": 50,
+          "mandatory": false
+        },
+        {
+          "type": "Attribute",
+          "name": "Nas_Oznaka države",
+          "code": "NAS_DR_OZNAKA",
+          "value_type": "VARCHAR",
+          "length": 4,
+          "mandatory": true
+        },
+        {
+          "type": "Attribute",
+          "name": "Oznaka naseljenog mesta",
+          "code": "NM_OZNAKA",
+          "value_type": "INT",
+          "mandatory": true
+        }
+      ],
+      "relations": [
+        {
+          "code": "DRZAVLJANSTVO",
+          "name": "Državljanstvo",
+          "reference": [
+            "DR_OZNAKA"
+          ],
+          "referedEntity": [
+            "DRZAVA"
+          ],
+          "refered": [
+            "DR_OZNAKA"
+          ]
+        },
+        {
+          "code": "NASELJENO_MESTO_STANOVANJA",
+          "name": "Naseljeno mesto stanovanja",
+          "reference": [
+            "DR_OZNAKA",
+            "NM_OZNAKA"
+          ],
+          "referedEntity": [
+            "NASELJENA_MESTA"
+          ],
+          "refered": [
+            "DR_OZNAKA",
+            "NM_OZNAKA"
+          ]
+        }
+      ]
+    },
+    {
+      "type": "Entity",
+      "database_type": "sql",
+      "name": "Šifarnik radnih mesta",
+      "code": "SIFARNIK_RADNIH_MESTA",
+      "url": "URL",
+      "attributes": [
+        {
+          "type": "Attribute",
+          "name": "Oznaka radnog mesta",
+          "code": "SIF_OZNAKA",
+          "value_type": "CHAR",
+          "length": 2,
+          "primary-key": true,
+          "mandatory": true
+        },
+        {
+          "type": "Attribute",
+          "name": "Oznaka države",
+          "code": "DR_OZNAKA",
+          "value_type": "VARCHAR",
+          "length": 4,
+          "primary-key": true,
+          "foreign-key": true,
+          "mandatory": true
+        },
+        {
+          "type": "Attribute",
+          "name": "Naziv radnog mesta",
+          "code": "SIF_NAZIV",
+          "value_type": "VARCHAR",
+          "length": 25,
+          "mandatory": true
+        },
+        {
+          "type": "Attribute",
+          "name": "Opis radnog mesta",
+          "code": "SIF_OPIS",
+          "value_type": "VARCHAR",
+          "length": 1000,
+          "mandatory": true
+        }
+      ],
+      "relations": [
+        {
+          "code": "DRZAVA_IMA_SIFARNIK_RADNIH_MESTA",
+          "name": "Država ima šifarnik radnih mesta",
+          "reference": [
+            "DR_OZNAKA"
+          ],
+          "referedEntity": [
+            "DRZAVA"
+          ],
+          "refered": [
+            "DR_OZNAKA"
+          ]
+        }
+      ]
+    },
+    {
+      "type": "Entity",
+      "database_type": "sql",
+      "name": "Vremenski period pozicije",
+      "code": "VREMENSKI_PERIOD_POZICIJE",
+      "url": "URL",
+      "attributes": [
+        {
+          "type": "Attribute",
+          "name": "Redni broj vremenskog perioda",
+          "code": "NP_RBR",
+          "value_type": "INT",
+          "length": 4,
+          "primary-key": true,
+          "mandatory": true
+        },
+        {
+          "type": "Attribute",
+          "name": "Oznaka države zaposlenog",
+          "code": "ZAP_DR_OZNAKA",
+          "value_type": "VARCHAR",
+          "length": 4,
+          "primary-key": true,
+          "foreign-key-1": true,
+          "mandatory": true
+        },
+        {
+          "type": "Attribute",
+          "name": "JMBG",
+          "code": "ZAP_JMBG",
+          "value_type": "VARCHAR",
+          "length": 30,
+          "primary-key": true,
+          "foreign-key-1": true,
+          "mandatory": true
+        },
+        {
+          "type": "Attribute",
+          "name": "Mb advokatske kancelarije",
+          "code": "AK_MB",
+          "value_type": "VARCHAR",
+          "length": 30,
+          "primary-key": true,
+          "foreign-key-1": true,
+          "foreign-key-2": true,
+          "mandatory": true
+        },
+        {
+          "type": "Attribute",
+          "name": "Redni broj radnog odnosa sa zaposlenim",
+          "code": "RD_RBR",
+          "value_type": "BIGINT",
+          "primary-key": true,
+          "foreign-key-1": true,
+          "mandatory": true
+        },
+        {
+          "type": "Attribute",
+          "name": "Oznaka države advokatske kancelarije",
+          "code": "DR_OZNAKA",
+          "value_type": "VARCHAR",
+          "length": 4,
+          "primary-key": true,
+          "foreign-key-1": true,
+          "foreign-key-2": true,
+          "mandatory": true
+        },
+        {
+          "type": "Attribute",
+          "name": "Redni broj pozicije",
+          "code": "PZ_RBR",
+          "value_type": "INT",
+          "primary-key": true,
+          "foreign-key-2": true,
+          "mandatory": true
+        },
+        {
+          "type": "Attribute",
+          "name": "Na poziciji od",
+          "code": "NP__OD",
+          "value_type": "DATETIME",
+          "mandatory": true
+        },
+        {
+          "type": "Attribute",
+          "name": "Na poziciji do",
+          "code": "NP_DO",
+          "value_type": "DATETIME",
+          "mandatory": false
+        }
+      ],
+      "relations": [
+        {
+          "code": "ZAPOSLEN_NA_POZICIJA_JE",
+          "name": "Zaposlen na POZICIJA je",
+          "reference": [
+            "ZAP_DR_OZNAKA",
+            "DR_OZNAKA",
+            "JMBG",
+            "AK_MB",
+            "RD_RBR"
+          ],
+          "referedEntity": [
+            "RADNIODNOS"
+          ],
+          "refered": [
+            "ZAP_DR_OZNAKA",
+            "DR_OZNAKA",
+            "JMBG",
+            "AK_MB",
+            "RD_RBR"
+          ]
+        },
+        {
+          "code": "POZICIJA_ZAPOSLEN_JE",
+          "name": "Pozicija ZAPOSLEN je",
+          "reference": [
+            "DR_OZNAKA",
+            "AK_MB",
+            "PZ_RBR"
+          ],
+          "referedEntity": [
+            "POZICIJE"
+          ],
+          "refered": [
+            "DR_OZNAKA",
+            "AK_MB",
+            "PZ_RBR"
+          ]
+        }
+      ]
+    },
+    {
+      "type": "Entity",
+      "database_type": "sql",
+      "name": "Pozicije",
+      "code": "POZICIJE",
+      "url": "URL",
+      "attributes": [
+        {
+          "type": "Attribute",
+          "name": "Redni broj pozicije",
+          "code": "PZ_RBR",
+          "value_type": "INT",
+          "primary-key": true,
+          "mandatory": true
+        },
+        {
+          "type": "Attribute",
+          "name": "Oznaka države",
+          "code": "DR_OZNAKA",
+          "value_type": "VARCHAR",
+          "length": 4,
+          "primary-key": true,
+          "foreign-key": true,
+          "mandatory": true
+        },
+        {
+          "type": "Attribute",
+          "name": "Mb advokatske kancelarije",
+          "code": "AK_MB",
+          "value_type": "VARCHAR",
+          "length": 30,
+          "primary-key": true,
+          "foreign-key": true,
+          "mandatory": true
+        },
+        {
+          "type": "Attribute",
+          "name": "Naziv pozicije",
+          "code": "PZ_NAZIV",
+          "value_type": "VARCHAR",
+          "length": 25,
+          "mandatory": true
+        },
+        {
+          "type": "Attribute",
+          "name": "Opis pozicije",
+          "code": "PZ_OPIS",
+          "value_type": "VARCHAR",
+          "length": 1000,
+          "mandatory": true
+        }
+      ],
+      "relations": [
+        {
+          "code": "POZICIJA_ADVOKATSKA_KANCELARIJA",
+          "name": "Pozicija ADVOKATSKA KANCELARIJA",
+          "reference": [
+            "DR_OZNAKA",
+            "AK_MB"
+          ],
+          "referedEntity": [
+            "ADVOKATSKA_KANCELARIJA"
+          ],
+          "refered": [
+            "DR_OZNAKA",
+            "AK_MB"
+          ]
+        }
+      ]
+    },
+    {
+      "type": "Entity",
+      "database_type": "sql",
+      "name": "Obavezeza pozicije",
+      "code": "OBAVEZE_ZA_POZICIJE",
+      "url": "URL",
+      "attributes": [
+        {
+          "type": "Attribute",
+          "name": "Redni broj obaveze",
+          "code": "OB_RBR",
+          "value_type": "BIGINT",
+          "primary-key": true,
+          "mandatory": true
+        },
+        {
+          "type": "Attribute",
+          "name": "Oznaka države",
+          "code": "DR_OZNAKA",
+          "value_type": "varchar",
+          "length": 4,
+          "primary-key": true,
+          "foreign-key-1": true,
+          "foreign-key-2": true,
+          "mandatory": true
+        },
+        {
+          "type": "Attribute",
+          "name": "Mb advokatske kancelarije",
+          "code": "AK_MB",
+          "value_type": "VARCHAR",
+          "length": 30,
+          "primary-key": true,
+          "foreign-key-1": true,
+          "foreign-key-2": true,
+          "mandatory": true
+        },
+        {
+          "type": "Attribute",
+          "name": "Naziv obaveze",
+          "code": "OB_NAZIV",
+          "value_type": "VARCHAR",
+          "length": 25,
+          "mandatory": true
+        },
+        {
+          "type": "Attribute",
+          "name": "Opis obaveze",
+          "code": "OB_OPIS",
+          "value_type": "VARCHAR",
+          "length": 1000,
+          "mandatory": true
+        },
+        {
+          "type": "Attribute",
+          "name": "Datum od",
+          "code": "OB_DATUM_OD",
+          "value_type": "DATETIME",
+          "mandatory": true
+        },
+        {
+          "type": "Attribute",
+          "name": "Datum do",
+          "code": "OB_DATUM_DO",
+          "value_type": "DATETIME",
+          "mandatory": false
+        },
+        {
+          "type": "Attribute",
+          "name": "Redni broj pozicije",
+          "code": "PZ_RBR",
+          "value_type": "INT",
+          "foreign-key-1": true,
+          "mandatory": true
+        }
+      ],
+      "relations": [
+        {
+          "code": "OBAVEZE_POZICIJE_JE_ADVOKATSKA_KANCELARIJA",
+          "name": "Obaveze pozicije je ADVOKATSKA KANCELARIJA",
+          "reference": [
+            "DR_OZNAKA",
+            "AK_MB"
+          ],
+          "referedEntity": [
+            "ADVOKATSKA_KANCELARIJA"
+          ],
+          "refered": [
+            "DR_OZNAKA",
+            "AK_MB"
+          ]
+        },
+        {
+          "code": "DODELA_OBAVEZE_POZICIJE",
+          "name": "Dodela obaveze pozicije",
+          "reference": [
+            "DR_OZNAKA",
+            "AK_MB",
+            "PZ_RBR"
+          ],
+          "referedEntity": [
+            "POZICIJE"
+          ],
+          "refered": [
+            "DR_OZNAKA",
+            "AK_MB",
+            "PZ_RBR"
+          ]
+        }
+      ]
+    },
+    {
+      "type": "Entity",
+      "database_type": "sql",
+      "name": "Zapisi sa sastanka sa strankom",
+      "code": "ZAPISI_SA_SASTANKA_SA_STRANKOM",
+      "url": "URL",
+      "attributes": [
+        {
+          "type": "Attribute",
+          "name": "Redni broj zapisa",
+          "code": "ZS_RBR",
+          "value_type": "BIGINT",
+          "primary-key": true,
+          "mandatory": true
+        },
+        {
+          "type": "Attribute",
+          "name": "Pre_Oznaka države",
+          "code": "PRE_DR_OZNAKA",
+          "value_type": "VARCHAR",
+          "length": 4,
+          "primary-key": true,
+          "foreign-key": true,
+          "mandatory": true
+        },
+        {
+          "type": "Attribute",
+          "name": "Mb advokatske kancelarije",
+          "code": "AK_MB",
+          "value_type": "VARCHAR",
+          "length": 30,
+          "primary-key": true,
+          "foreign-key": true,
+          "mandatory": true
+        },
+        {
+          "type": "Attribute",
+          "name": "Broj predmeta",
+          "code": "ID_PRED",
+          "value_type": "BIGINT",
+          "primary-key": true,
+          "foreign-key": true,
+          "mandatory": true
+        },
+        {
+          "type": "Attribute",
+          "name": "Redni broj sastanka",
+          "code": "SS_RBR",
+          "value_type": "BIGINT",
+          "primary-key": true,
+          "foreign-key": true,
+          "mandatory": true
+        },
+        {
+          "type": "Attribute",
+          "name": "Zapis sa sastanka",
+          "code": "ZS_ZAPIS",
+          "value_type": "VARCHAR",
+          "length": 8000,
+          "mandatory": true
+        }
+      ],
+      "relations": [
+        {
+          "code": "POPUNJAVANJE_ZAPISNIKA_ZA_SASTANKA_SA_STRANKOM",
+          "name": "Popunjavanje zapisnika sa sastanka sa strankom",
+          "reference": [
+            "PRE_DR_OZNAKA",
+            "AK_MB",
+            "ID_PRED",
+            "SS_RBR"
+          ],
+          "referedEntity": [
+            "SASTANCI_SA_STRANKOM"
+          ],
+          "refered": [
+            "PRE_DR_OZNAKA",
+            "AK_MB",
+            "ID_PRED",
+            "SS_RBR"
+          ]
+        }
+      ]
+    },
+    {
+      "type": "Entity",
+      "database_type": "sql",
+      "name": "Tip dokumenta predmeta",
+      "code": "TIP_DOKUMENTA_PREDMETA",
+      "url": "URL",
+      "attributes": [
+        {
+          "type": "Attribute",
+          "name": "Oznaka tipa dokumenta",
+          "code": "TD_OZNAKA",
+          "value_type": "CHAR",
+          "length": 2,
+          "primary-key": true,
+          "mandatory": true
+        },
+        {
+          "type": "Attribute",
+          "name": "Mb advokatske kancelarije",
+          "code": "AK_MB",
+          "value_type": "VARCHAR",
+          "length": 30,
+          "primary-key": true,
+          "foreign-key": true,
+          "mandatory": true
+        },
+        {
+          "type": "Attribute",
+          "name": "Oznaka države",
+          "code": "DR_OZNAKA",
+          "value_type": "VARCHAR",
+          "length": 4,
+          "primary-key": true,
+          "foreign-key": true,
+          "mandatory": true
+        },
+        {
+          "type": "Attribute",
+          "name": "Naziv tipa dokumenta",
+          "code": "TD_NAZIV",
+          "value_type": "VARCHAR",
+          "length": 25,
+          "mandatory": false
+        },
+        {
+          "type": "Attribute",
+          "name": "Opis tipa dokumenta",
+          "code": "TD_OPIS",
+          "value_type": "VARCHAR",
+          "length": 1000,
+          "mandatory": false
+        }
+      ],
+      "relations": [
+        {
+          "code": "ADVOKATSKA_KANCELARIJA_IMA_SIFARNIK_TIPOVA_DOKUMENATA",
+          "name": "Advokatska kancelarija ima šifarnik tipova dokumenata",
+          "reference": [
+            "DR_OZNAKA",
+            "AK_MB"
+          ],
+          "referedEntity": [
+            "ADVOKATSKA_KANCELARIJA"
+          ],
+          "refered": [
+            "DR_OZNAKA",
+            "AK_MB"
+          ]
+        }
+      ]
+    },
+    {
+      "type": "Entity",
+      "database_type": "sql",
+      "name": "Dokumenti predmeta",
+      "code": "DOKUMENTI_PREDMETA",
+      "url": "URL",
+      "attributes": [
+        {
+          "type": "Attribute",
+          "name": "Broj dokumenta",
+          "code": "ID_DOK",
+          "value_type": "BIGINT",
+          "primary-key": true,
+          "mandatory": true
+        },
+        {
+          "type": "Attribute",
+          "name": "Broj predmeta",
+          "code": "ID_PRED",
+          "value_type": "BIGINT",
+          "primary-key": true,
+          "foreign-key-1": true,
+          "mandatory": true
+        },
+        {
+          "type": "Attribute",
+          "name": "Oznaka države",
+          "code": "DR_OZNAKA",
+          "value_type": "VARCHAR",
+          "length": 4,
+          "primary-key": true,
+          "foreign-key-1": true,
+          "foreign-key-2": true,
+          "mandatory": true
+        },
+        {
+          "type": "Attribute",
+          "name": "Mb advokatske kancelarije",
+          "code": "AK_MB",
+          "value_type": "VARCHAR",
+          "length": 30,
+          "primary-key": true,
+          "foreign-key-1": true,
+          "foreign-key-2": true,
+          "mandatory": true
+        },
+        {
+          "type": "Attribute",
+          "name": "Naziv dokumenta",
+          "code": "DOK_NAZIV",
+          "value_type": "VARCHAR",
+          "length": 50,
+          "mandatory": true
+        },
+        {
+          "type": "Attribute",
+          "name": "Opis dokumenta",
+          "code": "DOK_OPIS",
+          "value_type": "VARCHAR",
+          "length": 8000,
+          "mandatory": true
+        },
+        {
+          "type": "Attribute",
+          "name": "Oznaka tipa dokumenta",
+          "code": "TD_OZNAKA",
+          "value_type": "CHAR",
+          "length": 2,
+          "foreign-key-2": true,
+          "mandatory": false
+        }
+      ],
+      "relations": [
+        {
+          "code": "TIP_DOKUMENTA_DOKUMENT_JE",
+          "name": "Tip dokumenta DOKUMENT je",
+          "reference": [
+            "AK_MB",
+            "DR_OZNAKA",
+            "TD_OZNAKA"
+          ],
+          "referedEntity": [
+            "TIP_DOKUMENTA_PREDMETA"
+          ],
+          "refered": [
+            "AK_MB",
+            "DR_OZNAKA",
+            "TD_OZNAKA"
+          ]
+        },
+        {
+          "code": "DODELA_DOKUMENTA_PREDMET",
+          "name": "Dodela dokumenta PREDMET",
+          "reference": [
+            "DR_OZNAKA",
+            "AK_MB",
+            "ID_PRED"
+          ],
+          "referedEntity": [
+            "PREDMETI"
+          ],
+          "refered": [
+            "DR_OZNAKA",
+            "AK_MB",
+            "ID_PRED"
+          ]
+        }
+      ]
+    },
+    {
+      "type": "Entity",
+      "database_type": "sql",
+      "name": "Sastanci sa strankom",
+      "code": "SASTANCI_SA_STRANKOM",
+      "url": "URL",
+      "attributes": [
+        {
+          "type": "Attribute",
+          "name": "Oznaka države advokatske kancelarije",
+          "code": "PRE_DR_OZNAKA",
+          "value_type": "VARCHAR",
+          "length": 4,
+          "primary-key": true,
+          "foreign-key-2": true,
+          "mandatory": true
+        },
+        {
+          "type": "Attribute",
+          "name": "Mb advokatske kancelarije",
+          "code": "AK_MB",
+          "value_type": "VARCHAR",
+          "length": 30,
+          "primary-key": true,
+          "foreign-key-2": true,
+          "mandatory": true
+        },
+        {
+          "type": "Attribute",
+          "name": "Broj predmeta",
+          "code": "ID_PRED",
+          "value_type": "BIGINT",
+          "primary-key": true,
+          "foreign-key-2": true,
+          "mandatory": true
+        },
+        {
+          "type": "Attribute",
+          "name": "Redni broj sastanka",
+          "code": "SS_RBR",
+          "value_type": "BIGINT",
+          "primary-key": true,
+          "mandatory": true
+        },
+        {
+          "type": "Attribute",
+          "name": "Datum",
+          "code": "SS_DATUM",
+          "value_type": "DATETIME",
+          "mandatory": true
+        },
+        {
+          "type": "Attribute",
+          "name": "Vreme",
+          "code": "SS_VREME",
+          "value_type": "DATETIME",
+          "mandatory": true
+        },
+        {
+          "type": "Attribute",
+          "name": "Adresa",
+          "code": "SS_ADRESA",
+          "value_type": "VARCHAR",
+          "length": 256,
+          "mandatory": true
+        },
+        {
+          "type": "Attribute",
+          "name": "Oznaka države",
+          "code": "DR_OZNAKA",
+          "value_type": "VARCHAR",
+          "length": 4,
+          "foreign-key-1": true,
+          "mandatory": true
+        },
+        {
+          "type": "Attribute",
+          "name": "Oznaka naseljenog mesta",
+          "code": "NM_OZNAKA",
+          "value_type": "INT",
+          "foreign-key-1": true,
+          "mandatory": true
+        }
+      ],
+      "relations": [
+        {
+          "code": "NASELJENO_MESTO_SASTANKA",
+          "name": "Naseljeno mesto sastanka",
+          "reference": [
+            "DR_OZNAKA",
+            "NM_OZNAKA"
+          ],
+          "referedEntity": [
+            "NASELJENA_MESTA"
+          ],
+          "refered": [
+            "DR_OZNAKA",
+            "NM_OZNAKA"
+          ]
+        },
+        {
+          "code": "ZAKAZIVANJE_SASTANKA",
+          "name": "Zakazivanje sastanka",
+          "reference": [
+            "DR_OZNAKA",
+            "AK_MB",
+            "ID_PRED"
+          ],
+          "referedEntity": [
+            "PREDMETI"
+          ],
+          "refered": [
+            "DR_OZNAKA",
+            "AK_MB",
+            "ID_PRED"
+          ]
+        }
+      ]
+    },
+    {
+      "type": "Entity",
+      "database_type": "sql",
+      "name": "Predmeti",
+      "code": "PREDMETI",
+      "url": "URL",
+      "attributes": [
+        {
+          "type": "Attribute",
+          "name": "Broj predmeta",
+          "code": "ID_PRED",
+          "value_type": "BIGINT",
+          "primary-key": true,
+          "mandatory": true
+        },
+        {
+          "type": "Attribute",
+          "name": "Oznaka države",
+          "code": "DR_OZNAKA",
+          "value_type": "VARCHAR",
+          "length": 4,
+          "primary-key": true,
+          "foreign-key-1": true,
+          "foreign-key-2": true,
+          "mandatory": true
+        },
+        {
+          "type": "Attribute",
+          "name": "Mb advokatske kancelarije",
+          "code": "AK_MB",
+          "value_type": "VARCHAR",
+          "length": 30,
+          "primary-key": true,
+          "foreign-key-2": true,
+          "mandatory": true
+        },
+        {
+          "type": "Attribute",
+          "name": "Datum otvaranja predmeta",
+          "code": "PRED_DATUM_OD",
+          "value_type": "DATETIME",
+          "mandatory": true
+        },
+        {
+          "type": "Attribute",
+          "name": "Datum zatvaranja predmeta",
+          "code": "PRED_DATUM_DO",
+          "value_type": "DATETIME",
+          "mandatory": false
+        },
+        {
+          "type": "Attribute",
+          "name": "Opis predmeta",
+          "code": "PRED_OPIS",
+          "value_type": "VARCHAR",
+          "length": 256,
+          "mandatory": true
+        },
+        {
+          "type": "Attribute",
+          "name": "Oznaka tipa suda",
+          "code": "TS_OZNAKA",
+          "value_type": "CHAR",
+          "length": 2,
+          "foreign-key-1": true,
+          "mandatory": false
+        }
+      ],
+      "relations": [
+        {
+          "code": "PREDMET_ADVOKATSKE_KANCELARIJE",
+          "name": "Predmet advokatske kancelarije",
+          "reference": [
+            "DR_OZNAKA",
+            "AK_MB"
+          ],
+          "referedEntity": [
+            "ADVOKATSKA_KANCELARIJA"
+          ],
+          "refered": [
+            "DR_OZNAKA",
+            "AK_MB"
+          ]
+        },
+		{
+          "code": "TIP_PREDMETA",
+          "name": "Tip predmeta",
+          "reference": [
+            "DR_OZNAKA",
+            "TS_OZNAKA"
+          ],
+          "referedEntity": [
+            "TIPOVI_SUDOVA"
+          ],
+          "refered": [
+            "DR_OZNAKA",
+            "TS_OZNAKA"
+          ]
+        }
+      ]
+    },
+    {
+      "type": "Entity",
+      "database_type": "sql",
+      "name": "Ročišta",
+      "code": "ROCISTA",
+      "url": "URL",
+      "attributes": [
+        {
+          "type": "Attribute",
+          "name": "Redni broj ročišta",
+          "code": "ROC_REDNI_BROJ",
+          "value_type": "BIGINT",
+          "primary-key": true,
+          "mandatory": true
+        },
+        {
+          "type": "Attribute",
+          "name": "Oznaka države",
+          "code": "DR_OZNAKA",
+          "value_type": "VARCHAR",
+          "length": 4,
+          "primary-key": true,
+          "foreign-key-2": true,
+          "mandatory": true
+        },
+        {
+          "type": "Attribute",
+          "name": "Mb advokatske kancelarije",
+          "code": "AK_MB",
+          "value_type": "VARCHAR",
+          "length": 30,
+          "primary-key": true,
+          "foreign-key": true,
+          "mandatory": true
+        },
+        {
+          "type": "Attribute",
+          "name": "Broj predmeta",
+          "code": "ID_PRED",
+          "value_type": "BIGINT",
+          "primary-key": true,
+          "foreign-key": true,
+          "mandatory": true
+        },
+        {
+          "type": "Attribute",
+          "name": "Datum ročišta",
+          "code": "ROC_DATUM",
+          "value_type": "DATETIME",
+          "mandatory": true
+        },
+        {
+          "type": "Attribute",
+          "name": "Vreme ročišta",
+          "code": "ROC_VREME",
+          "value_type": "DATETIME",
+          "mandatory": true
+        }
+      ],
+      "relations": [
+        {
+          "code": "ZAKAZIVANJE_ROCISTA",
+          "name": "Zakazivanje ročišta",
+          "reference": [
+            "DR_OZNAKA",
+            "AK_MB",
+            "ID_PRED"
+          ],
+          "referedEntity": [
+            "PREDMETI"
+          ],
+          "refered": [
+            "DR_OZNAKA",
+            "AK_MB",
+            "ID_PRED"
+          ]
+        }
+      ]
+    },
+    {
+      "type": "Entity",
+      "database_type": "sql",
+      "name": "Zapisnik ročišta",
+      "code": "ZAPISNIK_ROCISTA",
+      "url": "URL",
+      "attributes": [
+        {
+          "type": "Attribute",
+          "name": "Broj zapisnika sa ročišta",
+          "code": "ID_ZAP_ROC",
+          "value_type": "BIGINT",
+          "primary-key": true,
+          "mandatory": true
+        },
+        {
+          "type": "Attribute",
+          "name": "Oznaka države",
+          "code": "DR_OZNAKA",
+          "value_type": "VARCHAR",
+          "length": 4,
+          "primary-key": true,
+          "foreign-key": true,
+          "mandatory": true
+        },
+        {
+          "type": "Attribute",
+          "name": "Mb advokatske kancelarije",
+          "code": "AK_MB",
+          "value_type": "VARCHAR",
+          "length": 30,
+          "primary-key": true,
+          "foreign-key": true,
+          "mandatory": true
+        },
+        {
+          "type": "Attribute",
+          "name": "Broj predmeta",
+          "code": "ID_PRED",
+          "value_type": "BIGINT",
+          "primary-key": true,
+          "foreign-key": true,
+          "mandatory": true
+        },
+        {
+          "type": "Attribute",
+          "name": "Redni broj ročišta",
+          "code": "ROC_REDNI_BROJ",
+          "value_type": "BIGINT",
+          "primary-key": true,
+          "foreign-key": true,
+          "mandatory": true
+        },
+        {
+          "type": "Attribute",
+          "name": "Zapis ročišta",
+          "code": "ROC_ZAPIS",
+          "value_type": "VARCHAR",
+          "length": 8000,
+          "mandatory": true
+        }
+      ],
+      "relations": [
+        {
+          "code": "POPUNJAVANJE_ZAPISNIKA_ZA_ROCISTE",
+          "name": "Popunjavanje zapisnika za ročište",
+          "reference": [
+            "DR_OZNAKA",
+            "AK_MB",
+            "ID_PRED",
+            "ROC_REDNI_BROJ"
+          ],
+          "referedEntity": [
+            "ROCISTA"
+          ],
+          "refered": [
+            "DR_OZNAKA",
+            "AK_MB",
+            "ID_PRED",
+            "ROC_REDNI_BROJROC_REDNI_BROJ"
+          ]
+        }
+      ]
+    },
+    {
+      "type": "Entity",
+      "database_type": "sql",
+      "name": "Zaposlen je na sastanku - sastanak ima zaposlenog",
+      "code": "ZAPOSLEN_JE_NA_SASTANKU___SASTANAK_IMA_ZAPOSLENOG",
+      "url": "URL",
+      "attributes": [
+        {
+          "type": "Attribute",
+          "name": "Broj predmeta",
+          "code": "ID_PRED",
+          "value_type": "BIGINT",
+          "primary-key": true,
+          "foreign-key-1": true,
+          "mandatory": true
+        },
+        {
+          "type": "Attribute",
+          "name": "Redni broj sastanka",
+          "code": "SS_RBR",
+          "value_type": "BIGINT",
+          "primary-key": true,
+          "foreign-key-1": true,
+          "mandatory": true
+        },
+        {
+          "type": "Attribute",
+          "name": "Oznaka države advokatske kancelarije",
+          "code": "ADV_DR_OZNAKA",
+          "value_type": "VARCHAR",
+          "length": 4,
+          "primary-key": true,
+          "foreign-key-1": true,
+          "foreign-key-2": true,
+          "mandatory": true
+        },
+        {
+          "type": "Attribute",
+          "name": "Mb advokatske kancelarije",
+          "code": "AK_MB",
+          "value_type": "VARCHAR",
+          "length": 30,
+          "primary-key": true,
+          "foreign-key-1": true,
+          "foreign-key-2": true,
+          "mandatory": true
+        },
+        {
+          "type": "Attribute",
+          "name": "Oznaka države zaposlenog",
+          "code": "ZAP_DR_OZNAKA",
+          "value_type": "VARCHAR",
+          "length": 4,
+          "primary-key": true,
+          "foreign-key-2": true,
+          "mandatory": true
+        },
+        {
+          "type": "Attribute",
+          "name": "JMBG",
+          "code": "ZAP_JMBG",
+          "value_type": "VARCHAR",
+          "length": 30,
+          "primary-key": true,
+          "foreign-key-2": true,
+          "mandatory": true
+        },
+        {
+          "type": "Attribute",
+          "name": "Redni broj radnog odnosa sa zaposlenim",
+          "code": "RD_RBR",
+          "value_type": "BIGINT",
+          "primary-key": true,
+          "foreign-key-2": true,
+          "mandatory": true
+        }
+      ],
+      "relations": [
+        {
+          "code": "ZAPOSLEN_JE_NA_SASTANKU___SASTANAK_IMA_ZAPOSLENOG2",
+          "name": "Zaposlenje na sastanku - sastanak ima zaposlenog",
+          "reference": [
+            "ADV_DR_OZNAKA",
+            "ZAP_DR_OZNAKA",
+            "ZAP_JMBG",
+            "AK_MB",
+            "RD_RBR"
+          ],
+          "referedEntity": [
+            "RADNIODNOS"
+          ],
+          "refered": [
+            "ADV_DR_OZNAKA",
+            "ZAP_DR_OZNAKA",
+            "ZAP_JMBG",
+            "AK_MB",
+            "RD_RBR"
+          ]
+        },
+        {
+          "code": "ZAPOSLEN_JE_NA_SASTANKU___SASTANAK_IMA_ZAPOSLENOG",
+          "name": "Zaposlenje na sastanku - sastanak ima zaposlenog",
+          "reference": [
+            "ADV_DR_OZNAKA",
+            "AK_MB",
+            "ID_PRED",
+            "SS_RBR"
+          ],
+          "referedEntity": [
+            "SASTANCI_SA_STRANKOM"
+          ],
+          "refered": [
+            "ADV_DR_OZNAKA",
+            "AK_MB",
+            "ID_PRED",
+            "SS_RBR"
+          ]
+        }
+      ]
+    },
+    {
+      "type": "Entity",
+      "database_type": "sql",
+      "name": "Istorija zaposlenih na predmetu",
+      "code": "ISTORIJA_ZAPOSLENIH_NA_PREDMETU",
+      "url": "URL",
+      "attributes": [
+        {
+          "type": "Attribute",
+          "name": "Redni broj na predmetu",
+          "code": "IZ_RBR",
+          "value_type": "INT",
+          "primary-key": true,
+          "mandatory": true
+        },
+        {
+          "type": "Attribute",
+          "name": "Oznaka države",
+          "code": "DR_OZNAKA",
+          "value_type": "VARCHAR",
+          "length": 4,
+          "primary-key": true,
+          "foreign-key-1": true,
+          "mandatory": true
+        },
+        {
+          "type": "Attribute",
+          "name": "Broj predmeta",
+          "code": "ID_PRED",
+          "value_type": "BIGINT",
+          "primary-key": true,
+          "foreign-key-1": true,
+          "mandatory": true
+        },
+        {
+          "type": "Attribute",
+          "name": "Redni broj radnog odnosa sa zaposlenim",
+          "code": "RD_RBR",
+          "value_type": "BIGINT",
+          "primary-key": true,
+          "foreign-key-2": true,
+          "mandatory": true
+        },
+        {
+          "type": "Attribute",
+          "name": "Adv_Oznaka države",
+          "code": "ADV_DR_OZNAKA",
+          "value_type": "VARCHAR",
+          "length": 4,
+          "primary-key": true,
+          "foreign-key-2": true,
+          "mandatory": true
+        },
+        {
+          "type": "Attribute",
+          "name": "Zap_Oznaka države",
+          "code": "ZAP_DR_OZNAKA",
+          "value_type": "VARCHAR",
+          "length": 4,
+          "primary-key": true,
+          "foreign-key-2": true,
+          "mandatory": true
+        },
+        {
+          "type": "Attribute",
+          "name": "JMBG",
+          "code": "ZAP_JMBG",
+          "value_type": "VARCHAR",
+          "length": 30,
+          "primary-key": true,
+          "foreign-key-2": true,
+          "mandatory": true
+        },
+        {
+          "type": "Attribute",
+          "name": "Mb advokatske kancelarije",
+          "code": "AK_MB",
+          "value_type": "VARCHAR",
+          "length": 30,
+          "primary-key": true,
+          "foreign-key-1": true,
+          "foreign-key-2": true,
+          "mandatory": true
+        },
+        {
+          "type": "Attribute",
+          "name": "Na predmetu od",
+          "code": "IZ_OD",
+          "value_type": "DATETIME",
+          "mandatory": true
+        },
+        {
+          "type": "Attribute",
+          "name": "Na predmetu do",
+          "code": "IZ_DO",
+          "value_type": "DATETIME",
+          "mandatory": false
+        }
+      ],
+      "relations": [
+        {
+          "code": "ZAPOSLEN_JE_NA_PREDMETU",
+          "name": "ZAPOSLEN je na predmetu",
+          "reference": [
+            "DR_OZNAKA",
+            "AK_MB",
+            "ID_PRED"
+          ],
+          "referedEntity": [
+            "PREDMETI"
+          ],
+          "refered": [
+            "DR_OZNAKA",
+            "AK_MB",
+            "ID_PRED"
+          ]
+        },
+        {
+          "code": "ZAPOSLEN_JE_NA_PREDMET",
+          "name": "Zaposlen je na PREDMET",
+          "reference": [
+            "ADV_DR_OZNAKA",
+            "ZAP_DR_OZNAKA",
+            "ZAP_JMBG",
+            "AK_MB",
+            "RD_RBR"
+          ],
+          "referedEntity": [
+            "RADNIODNOS"
+          ],
+          "refered": [
+            "ADV_DR_OZNAKA",
+            "ZAP_DR_OZNAKA",
+            "ZAP_JMBG",
+            "AK_MB",
+            "RD_RBR"
+          ]
+        }
+      ]
+    },
+    {
+      "type": "Entity",
+      "database_type": "sql",
+      "name": "Istorija statusa predmeta",
+      "code": "ISTORIJA_STATUSA_PREDMETA",
+      "url": "URL",
+      "attributes": [
+        {
+          "type": "Attribute",
+          "name": "Redni broj statusa",
+          "code": "IP_RBR",
+          "value_type": "INT",
+          "primary-key": true,
+          "mandatory": true
+        },
+        {
+          "type": "Attribute",
+          "name": "Mb advokatske kancelarije",
+          "code": "AK_MB",
+          "value_type": "VARCHAR",
+          "length": 30,
+          "primary-key": true,
+          "foreign-key-1": true,
+          "mandatory": true
+        },
+        {
+          "type": "Attribute",
+          "name": "Broj predmeta",
+          "code": "ID_PRED",
+          "value_type": "BIGINT",
+          "primary-key": true,
+          "foreign-key-1": true,
+          "mandatory": true
+        },
+        {
+          "type": "Attribute",
+          "name": "Oznaka države",
+          "code": "DR_OZNAKA",
+          "value_type": "VARCHAR",
+          "length": 4,
+          "primary-key": true,
+          "foreign-key-1": true,
+          "foreign-key-2": true,
+          "mandatory": true
+        },
+        {
+          "type": "Attribute",
+          "name": "Oznaka statusa",
+          "code": "SP_OZNAKA",
+          "value_type": "CHAR",
+          "length": 2,
+          "primary-key": true,
+          "foreign-key-2": true,
+          "mandatory": true
+        },
+        {
+          "type": "Attribute",
+          "name": "Status predmeta od",
+          "code": "IP_OD",
+          "value_type": "DATETIME",
+          "mandatory": true
+        },
+        {
+          "type": "Attribute",
+          "name": "Status predmeta do",
+          "code": "IP_DO",
+          "value_type": "DATETIME",
+          "mandatory": false
+        }
+      ],
+      "relations": [
+        {
+          "code": "PREDMET_JE_STATUS",
+          "name": "Predmet je STATUS",
+          "reference": [
+            "DR_OZNAKA",
+            "AK_MB",
+            "ID_PRED"
+          ],
+          "referedEntity": [
+            "PREDMETI"
+          ],
+          "refered": [
+            "DR_OZNAKA",
+            "AK_MB",
+            "ID_PRED"
+          ]
+        },
+        {
+          "code": "STATUS_PREDMET_JE",
+          "name": "Status PREDMET je",
+          "reference": [
+            "DR_OZNAKA",
+            "SP_OZNAKA"
+          ],
+          "referedEntity": [
+            "STATUSI_PREDMETA"
+          ],
+          "refered": [
+            "DR_OZNAKA",
+            "SP_OZNAKA"
+          ]
+        }
+      ]
+    },
+    {
+      "type": "Entity",
+      "database_type": "sql",
+      "name": "Istorija tipova predmeta",
+      "code": "ISTORIJA_TIPOVA_PREDMETA",
+      "url": "URL",
+      "attributes": [
+        {
+          "type": "Attribute",
+          "name": "Redni broj tipa predmeta",
+          "code": "TP_RBR",
+          "value_type": "INT",
+          "primary-key": true,
+          "mandatory": true
+        },
+        {
+          "type": "Attribute",
+          "name": "Mb advokatske kancelarije",
+          "code": "AK_MB",
+          "value_type": "VARCHAR",
+          "length": 30,
+          "primary-key": true,
+          "foreign-key-1": true,
+          "mandatory": true
+        },
+        {
+          "type": "Attribute",
+          "name": "Broj predmeta",
+          "code": "ID_PRED",
+          "value_type": "bigint",
+          "primary-key": true,
+          "foreign-key-1": true,
+          "mandatory": true
+        },
+        {
+          "type": "Attribute",
+          "name": "Oznaka države",
+          "code": "DR_OZNAKA",
+          "value_type": "VARCHAR",
+          "length": 4,
+          "primary-key": true,
+          "foreign-key-1": true,
+          "foreign-key-2": true,
+          "mandatory": true
+        },
+        {
+          "type": "Attribute",
+          "name": "Oznaka tipa predmeta",
+          "code": "TP_OZNAKA",
+          "value_type": "CHAR",
+          "length": 2,
+          "primary-key": true,
+          "foreign-key-1": true,
+          "mandatory": true
+        },
+        {
+          "type": "Attribute",
+          "name": "Tip predmeta od",
+          "code": "TP_OD",
+          "value_type": "DATETIME",
+          "mandatory": true
+        },
+        {
+          "type": "Attribute",
+          "name": "Tip predmeta do",
+          "code": "TP_DO",
+          "value_type": "DATETIME",
+          "mandatory": false
+        }
+      ],
+      "relations": [
+        {
+          "code": "PREDME_JE_TIP",
+          "name": "Predmet je TIP",
+          "reference": [
+            "DR_OZNAKA",
+            "AK_MB",
+            "ID_PRED"
+          ],
+          "referedEntity": [
+            "PREDMETI"
+          ],
+          "refered": [
+            "DR_OZNAKA",
+            "AK_MB",
+            "ID_PRED"
+          ]
+        },
+        {
+          "code": "TIP_PREDMET_JE",
+          "name": "Tip PREDMET je",
+          "reference": [
+            "DR_OZNAKA",
+            "TP_OZNAKA"
+          ],
+          "referedEntity": [
+            "TIPOVI_PREDMETA"
+          ],
+          "refered": [
+            "DR_OZNAKA",
+            "TP_OZNAKA"
+          ]
+        }
+      ]
+    },
+    {
+      "type": "Entity",
+      "database_type": "sql",
+      "name": "Tipovi predmeta",
+      "code": "TIPOVI_PREDMETA",
+      "url": "URL",
+      "attributes": [
+        {
+          "type": "Attribute",
+          "name": "Oznaka tipa predmeta",
+          "code": "TP_OZNAKA",
+          "value_type": "CHAR",
+          "length": 2,
+          "primary-key": true,
+          "mandatory": true
+        },
+        {
+          "type": "Attribute",
+          "name": "Oznaka države",
+          "code": "DR_OZNAKA",
+          "value_type": "VARCHAR",
+          "length": 4,
+          "primary-key": true,
+          "foreign-key": true,
+          "mandatory": true
+        },
+        {
+          "type": "Attribute",
+          "name": "Naziv tipa",
+          "code": "TP_NAZIV",
+          "value_type": "VARCHAR",
+          "length": 20,
+          "mandatory": true
+        },
+        {
+          "type": "Attribute",
+          "name": "Opis tipa predmeta",
+          "code": "TP_OPIS",
+          "value_type": "VARCHAR",
+          "length": 256,
+          "mandatory": false
+        }
+      ],
+      "relations": [
+        {
+          "code": "DRZAVA_IMA_SIFARNIK_TIPOVA_PREDMETA",
+          "name": "Država ima šifarnik tipova predmeta",
+          "reference": [
+            "DR_OZNAKA"
+          ],
+          "referedEntity": [
+            "DRZAVA"
+          ],
+          "refered": [
+            "DR_OZNAKA"
+          ]
+        }
+      ]
+    },
+    {
+      "type": "Entity",
+      "database_type": "sql",
+      "name": "Svedoci",
+      "code": "SVEDOCI",
+      "url": "URL",
+      "attributes": [
+        {
+          "type": "Attribute",
+          "name": "JMBG",
+          "code": "SVK_JMBG",
+          "value_type": "VARCHAR",
+          "length": 30,
+          "primary-key": true,
+          "mandatory": true
+        },
+        {
+          "type": "Attribute",
+          "name": "Oznaka države svedoka",
+          "code": "DR_OZNAKA",
+          "value_type": "VARCHAR",
+          "length": 4,
+          "primary-key": true,
+          "foreign-key-2": true,
+          "foreign-key-3": true,
+          "mandatory": true
+        },
+        {
+          "type": "Attribute",
+          "name": "Ime",
+          "code": "SVK_IME",
+          "value_type": "VARCHAR",
+          "length": 50,
+          "mandatory": true
+        },
+        {
+          "type": "Attribute",
+          "name": "Prezime",
+          "code": "SVK_PREZIME",
+          "value_type": "VARCHAR",
+          "length": 100,
+          "mandatory": true
+        },
+        {
+          "type": "Attribute",
+          "name": "Datum rođenja",
+          "code": "SVK_DAT_RODJ",
+          "value_type": "DATETIME",
+          "mandatory": true
+        },
+        {
+          "type": "Attribute",
+          "name": "Adresa",
+          "code": "SVK_ADRESA",
+          "value_type": "VARCHAR",
+          "length": 256,
+          "mandatory": true
+        },
+        {
+          "type": "Attribute",
+          "name": "Broj telefona",
+          "code": "BROJ_TELEFONA",
+          "value_type": "VARCHAR",
+          "length": 50,
+          "mandatory": true
+        },
+        {
+          "type": "Attribute",
+          "name": "Email",
+          "code": "SVK_EMAIL",
+          "value_type": "VARCHAR",
+          "length": 254,
+          "mandatory": false
+        },
+        {
+          "type": "Attribute",
+          "name": "Broj predmeta",
+          "code": "ID_PRED",
+          "value_type": "BIGINT",
+          "foreign-key-1": true,
+          "mandatory": true
+        },
+        {
+          "type": "Attribute",
+          "name": "Oznaka naseljenog mesta",
+          "code": "NM_OZNAKA",
+          "value_type": "INT",
+          "foreign-key-3": true,
+          "mandatory": true
+        },
+        {
+          "type": "Attribute",
+          "name": "Oznaka države advokatske kancelarije",
+          "code": "ADV_DR_OZNAKA",
+          "value_type": "VARCHAR",
+          "length": 4,
+          "foreign-key-1": true,
+          "foreign-key-4": true,
+          "mandatory": true
+        },
+        {
+          "type": "Attribute",
+          "name": "Mb advokatske kancelarije",
+          "code": "AK_MB",
+          "value_type": "VARCHAR",
+          "length": 30,
+          "foreign-key-1": true,
+          "foreign-key-4": true,
+          "mandatory": true
+        }
+      ],
+      "relations": [
+        {
+          "code": "NASELJENO_MESTO_SVEDOKA",
+          "name": "Naseljeno mesto svedoka",
+          "reference": [
+            "DR_OZNAKA",
+            "NM_OZNAKA"
+          ],
+          "referedEntity": [
+            "NASELJENA_MESTA"
+          ],
+          "refered": [
+            "DR_OZNAKA",
+            "NM_OZNAKA"
+          ]
+        },
+        {
+          "code": "SVEDOK_ADVOKATSKE_KANCELARIJE",
+          "name": "Svedok advokatske kancelarije",
+          "reference": [
+            "DR_OZNAKA",
+            "AK_MB"
+          ],
+          "referedEntity": [
+            "ADVOKATSKA_KANCELARIJA"
+          ],
+          "refered": [
+            "ADV_DR_OZNAKA",
+            "AK_MB"
+          ]
+        },
+        {
+          "code": "DRZAVLJANSTVO_SVEDOKA",
+          "name": "Državljanstvo svedoka",
+          "reference": [
+            "DR_OZNAKA"
+          ],
+          "referedEntity": [
+            "DRZAVA"
+          ],
+          "refered": [
+            "DR_OZNAKA"
+          ]
+        },
+        {
+          "code": "DODAVANJE_SVEDOKA_ZA_PREDMET",
+          "name": "Dodavanje svedoka za predmet",
+          "reference": [
+            "DR_OZNAKA",
+            "AK_MB",
+            "ID_PRED"
+          ],
+          "referedEntity": [
+            "PREDMETI"
+          ],
+          "refered": [
+            "DR_OZNAKA",
+            "AK_MB",
+            "ID_PRED"
+          ]
+        }
+      ]
+    },
+    {
+      "type": "Entity",
+      "database_type": "sql",
+      "name": "Statusi predmeta",
+      "code": "STATUSI_PREDMETA",
+      "url": "URL",
+      "attributes": [
+        {
+          "type": "Attribute",
+          "name": "Oznaka statusa",
+          "code": "SP_OZNAKA",
+          "value_type": "CHAR",
+          "length": 2,
+          "primary-key": true,
+          "mandatory": true
+        },
+        {
+          "type": "Attribute",
+          "name": "Oznaka države",
+          "code": "DR_OZNAKA",
+          "value_type": "VARCHAR",
+          "length": 4,
+          "primary-key": true,
+          "foreign-key": true,
+          "mandatory": true
+        },
+        {
+          "type": "Attribute",
+          "name": "Naziv statusa predmeta",
+          "code": "SP_NAZIV",
+          "value_type": "VARCHAR",
+          "length": 20,
+          "mandatory": true
+        },
+        {
+          "type": "Attribute",
+          "name": "Opis statusa predmeta",
+          "code": "SP_OPIS",
+          "value_type": "VARCHAR",
+          "length": 256,
+          "mandatory": false
+        }
+      ],
+      "relations": [
+        {
+          "code": "DRZAVA_IMA_SIFARNIK_STATUSA_PREDMETA",
+          "name": "Država ima šifarnik statusa predmeta",
+          "reference": [
+            "DR_OZNAKA"
+          ],
+          "referedEntity": [
+            "DRZAVA"
+          ],
+          "refered": [
+            "DR_OZNAKA"
+          ]
+        }
+      ]
+    },
+    {
+      "type": "Entity",
+      "database_type": "sql",
+      "name": "Istorija sudija na predmetu",
+      "code": "ISTORIJA_SUDIJA_NA_PREDMETU",
+      "url": "URL",
+      "attributes": [
+        {
+          "type": "Attribute",
+          "name": "Redni broj sudije na predmetu",
+          "code": "PS_RBR",
+          "value_type": "INT",
+          "primary-key": true,
+          "mandatory": true
+        },
+        {
+          "type": "Attribute",
+          "name": "Oznaka države",
+          "code": "DR_OZNAKA",
+          "value_type": "VARCHAR",
+          "length": 4,
+          "primary-key": true,
+          "foreign-key-1": true,
+          "mandatory": true
+        },
+        {
+          "type": "Attribute",
+          "name": "Mb advokatske kancelarije",
+          "code": "AK_MB",
+          "value_type": "VARCHAR",
+          "length": 30,
+          "primary-key": true,
+          "foreign-key-1": true,
+          "mandatory": true
+        },
+        {
+          "type": "Attribute",
+          "name": "Broj predmeta",
+          "code": "ID_PRED",
+          "value_type": "BIGINT",
+          "length": 4,
+          "primary-key": true,
+          "foreign-key-1": true,
+          "mandatory": true
+        },
+        {
+          "type": "Attribute",
+          "name": "Oznaka države sudije",
+          "code": "SUD_DR_OZNAKA",
+          "value_type": "VARCHAR",
+          "length": 4,
+          "primary-key": true,
+          "foreign-key-2": true,
+          "mandatory": true
+        },
+        {
+          "type": "Attribute",
+          "name": "JMBG",
+          "code": "SUDI_JMBG",
+          "value_type": "VARCHAR",
+          "length": 30,
+          "primary-key": true,
+          "foreign-key-2": true,
+          "mandatory": true
+        },
+        {
+          "type": "Attribute",
+          "name": "Sudija od",
+          "code": "PS_OD",
+          "value_type": "DATETIME",
+          "mandatory": true
+        },
+        {
+          "type": "Attribute",
+          "name": "Sudija do",
+          "code": "PS_DO",
+          "value_type": "DATETIME",
+          "mandatory": false
+        }
+      ],
+      "relations": [
+        {
+          "code": "SUDIJA_JE_NA_PREDMET",
+          "name": "Sudija je na PREDMET",
+          "reference": [
+            "DR_OZNAKA",
+            "SUDI_JMBG"
+          ],
+          "referedEntity": [
+            "SUDIJE"
+          ],
+          "refered": [
+            "DR_OZNAKA",
+            "SUDI_JMBG"
+          ]
+        },
+		{
+          "code": "SUDIJA_JE_NA_PREDMETU",
+          "name": "Sudija je na PREDMETU",
+          "reference": [
+            "DR_OZNAKA",
+            "AK_MB",
+			"ID_PRED"
+          ],
+          "referedEntity": [
+            "PREDMETI"
+          ],
+          "refered": [
+            "DR_OZNAKA",
+            "AK_MB",
+			"ID_PRED"
+          ]
+        }
+      ]
+    },
+    {
+      "type": "Entity",
+      "database_type": "sql",
+      "name": "Istorija suda na predmetu",
+      "code": "ISTORIJA_SUDA_NA_PREDMETU",
+      "url": "URL",
+      "attributes": [
+        {
+          "type": "Attribute",
+          "name": "Redni broj suda na predmetu",
+          "code": "IS_RBR",
+          "value_type": "INT",
+          "primary-key": true,
+          "mandatory": true
+        },
+        {
+          "type": "Attribute",
+          "name": "Mb advokatske kancelarije",
+          "code": "AK_MB",
+          "value_type": "VARCHAR",
+          "length": 30,
+          "primary-key": true,
+          "foreign-key-1": true,
+          "mandatory": true
+        },
+        {
+          "type": "Attribute",
+          "name": "Broj predmeta",
+          "code": "ID_PRED",
+          "value_type": "BIGINT",
+          "primary-key": true,
+          "foreign-key-1": true,
+          "mandatory": true
+        },
+        {
+          "type": "Attribute",
+          "name": "Oznaka države",
+          "code": "DR_OZNAKA",
+          "value_type": "VARCHAR",
+          "length": 4,
+          "primary-key": true,
+          "foreign-key-1": true,
+          "foreign-key-2": true,
+          "mandatory": true
+        },
+        {
+          "type": "Attribute",
+          "name": "Oznaka naseljenog mesta",
+          "code": "NM_OZNAKA",
+          "value_type": "INT",
+          "primary-key": true,
+          "foreign-key-2": true,
+          "mandatory": true
+        },
+        {
+          "type": "Attribute",
+          "name": "Oznaka suda",
+          "code": "SUDS_OZNAKA",
+          "value_type": "CHAR",
+          "length": 2,
+          "primary-key": true,
+          "foreign-key-2": true,
+          "mandatory": true
+        },
+        {
+          "type": "Attribute",
+          "name": "Sud od",
+          "code": "IS_OD",
+          "value_type": "DATETIME",
+          "mandatory": true
+        },
+        {
+          "type": "Attribute",
+          "name": "Sud do",
+          "code": "IS_DO",
+          "value_type": "DATETIME",
+          "mandatory": false
+        }
+      ],
+      "relations": [
+        {
+          "code": "PREDMET_JE_NA_SUDU",
+          "name": "Predmet je na SUDU",
+          "reference": [
+            "DR_OZNAKA",
+            "AK_MB",
+            "ID_PRED"
+          ],
+          "referedEntity": [
+            "PREDMETI"
+          ],
+          "refered": [
+            "DR_OZNAKA",
+            "AK_MB",
+            "ID_PRED"
+          ]
+        },
+        {
+          "code": "NA_SUDU_JE_PREDMET",
+          "name": "NasudujePREDMET",
+          "reference": [
+            "DR_OZNAKA",
+            "NM_OZNAKA",
+            "SUDS_OZNAKA"
+          ],
+          "referedEntity": [
+            "SUDOVI"
+          ],
+          "refered": [
+            "DR_OZNAKA",
+            "NM_OZNAKA",
+            "SUDS_OZNAKA"
+          ]
+        }
+      ]
+    },
+    {
+      "type": "Entity",
+      "database_type": "sql",
+      "name": "Sudije",
+      "code": "SUDIJE",
+      "url": "URL",
+      "attributes": [
+        {
+          "type": "Attribute",
+          "name": "JMBG",
+          "code": "SUDI_JMBG",
+          "value_type": "VARCHAR",
+          "length": 30,
+          "primary-key": true,
+          "mandatory": true
+        },
+        {
+          "type": "Attribute",
+          "name": "Oznaka države",
+          "code": "DR_OZNAKA",
+          "value_type": "VARCHAR",
+          "length": 4,
+          "primary-key": true,
+          "foreign-key": true,
+          "mandatory": true
+        },
+        {
+          "type": "Attribute",
+          "name": "Ime",
+          "code": "SUDI_IME",
+          "value_type": "VARCHAR",
+          "length": 50,
+          "mandatory": true
+        },
+        {
+          "type": "Attribute",
+          "name": "Prezime",
+          "code": "SUDI_PREZIME",
+          "value_type": "VARCHAR",
+          "length": 100,
+          "mandatory": true
+        }
+      ],
+      "relations": [
+        {
+          "code": "DRZAVLJANSTVO_SUDIJE",
+          "name": "Državljanstvo sudije",
+          "reference": [
+            "DR_OZNAKA"
+          ],
+          "referedEntity": [
+            "DRZAVA"
+          ],
+          "refered": [
+            "DR_OZNAKA"
+          ]
+        }
+      ]
+    },
+    {
+      "type": "Entity",
+      "database_type": "sql",
+      "name": "Tipovi sudova",
+      "code": "TIPOVI_SUDOVA",
+      "url": "URL",
+      "attributes": [
+        {
+          "type": "Attribute",
+          "name": "Oznaka tipa suda",
+          "code": "TS_OZNAKA",
+          "value_type": "VARCHAR",
+          "length": 2,
+          "primary-key": true,
+          "mandatory": true
+        },
+        {
+          "type": "Attribute",
+          "name": "Oznaka države",
+          "code": "DR_OZNAKA",
+          "value_type": "VARCHAR",
+          "length": 4,
+          "primary-key": true,
+          "foreign-key": true,
+          "mandatory": true
+        },
+        {
+          "type": "Attribute",
+          "name": "Naziv",
+          "code": "TS_SUDS_NAZIV",
+          "value_type": "VARCHAR",
+          "length": 25,
+          "primary-key": true,
+          "foreign-key-1": true,
+          "foreign-key-2": true,
+          "mandatory": true
+        },
+        {
+          "type": "Attribute",
+          "name": "Opis tipa suda",
+          "code": "TS_SUDS_OPIS",
+          "value_type": "VARCHAR",
+          "length": 1000,
+          "mandatory": true
+        },
+        {
+          "type": "Attribute",
+          "name": "Datum od",
+          "code": "TS_SUDS_DATUM_OD",
+          "value_type": "DATETIME",
+          "mandatory": true
+        },
+        {
+          "type": "Attribute",
+          "name": "Datum do",
+          "code": "TS_SUDS_DATUM_DO",
+          "value_type": "DATETIME",
+          "mandatory": false
+        }
+      ],
+      "relations": [
+        {
+          "code": "DRZAVA_IMA_SIFARNIK_TIPOVA_SUDOVA",
+          "name": "Država ima šifarnik tipova sudova",
+          "reference": [
+            "DR_OZNAKA"
+          ],
+          "referedEntity": [
+            "DRZAVA"
+          ],
+          "refered": [
+            "DR_OZNAKA"
+          ]
+        }
+      ]
+    },
+    {
+      "type": "Entity",
+      "database_type": "sql",
+      "name": "Sudovi imaju vise tipova suda",
+      "code": "SUDOVI_IMAJU_VISE_TIPOVA_SUDA",
+      "url": "URL",
+      "attributes": [
+        {
+          "type": "Attribute",
+          "name": "Redni broj tipa suda",
+          "code": "TST_OD",
+          "value_type": "INT",
+          "primary-key": true,
+          "mandatory": true
+        },
+        {
+          "type": "Attribute",
+          "name": "Oznaka tipa suda",
+          "code": "TS_OZNAKA",
+          "value_type": "CHAR",
+          "length": 2,
+          "primary-key": true,
+          "foreign-key-1": true,
+          "mandatory": true
+        },
+        {
+          "type": "Attribute",
+          "name": "Oznaka države",
+          "code": "DR_OZNAKA",
+          "value_type": "VARCHAR",
+          "length": 4,
+          "primary-key": true,
+          "foreign-key-1": true,
+          "foreign-key-2": true,
+          "mandatory": true
+        },
+        {
+          "type": "Attribute",
+          "name": "Oznaka naseljenog mesta",
+          "code": "NM_OZNAKA",
+          "value_type": "INT",
+          "primary-key": true,
+          "foreign-key-2": true,
+          "mandatory": true
+        },
+        {
+          "type": "Attribute",
+          "name": "Oznaka suda",
+          "code": "SUDS_OZNAKA",
+          "value_type": "CHAR",
+          "length": 2,
+          "primary-key": true,
+          "foreign-key-2": true,
+          "mandatory": true
+        },
+        {
+          "type": "Attribute",
+          "name": "Od",
+          "code": "TST_RRB",
+          "value_type": "DATETIME",
+          "mandatory": true
+        },
+        {
+          "type": "Attribute",
+          "name": "Do",
+          "code": "TST_DO",
+          "value_type": "DATETIME",
+          "mandatory": false
+        }
+      ],
+      "relations": [
+        {
+          "code": "SUDOVI_IMAJU_VISE_TIPOVA",
+          "name": "Sudovi imaju vise tipova",
+          "reference": [
+            "TS_OZNAKA",
+            "DR_OZNAKA"
+          ],
+          "referedEntity": [
+            "TIPOVI_SUDOVA"
+          ],
+          "refered": [
+            "TS_OZNAKA",
+            "DR_OZNAKA"
+          ]
+        },
+        {
+          "code": "TIPOVI_PREDMETA_IMAJU_VISE_SUDOVA",
+          "name": "Tipovi predmeta imaju vise sudova",
+          "reference": [
+            "DR_OZNAKA",
+            "NM_OZNAKA",
+            "SUDS_OZNAKA"
+          ],
+          "referedEntity": [
+            "SUDOVI"
+          ],
+          "refered": [
+            "DR_OZNAKA",
+            "NM_OZNAKA",
+            "SUDS_OZNAKA"
+          ]
+        }
+      ]
+    },
+    {
+      "type": "Entity",
+      "database_type": "sql",
+      "name": "Sudovi",
+      "code": "SUDOVI",
+      "url": "URL",
+      "attributes": [
+        {
+          "type": "Attribute",
+          "name": "Oznaka suda",
+          "code": "SUDS_OZNAKA",
+          "value_type": "CHAR",
+          "length": 2,
+          "primary-key": true,
+          "mandatory": true
+        },
+        {
+          "type": "Attribute",
+          "name": "Oznaka države",
+          "code": "DR_OZNAKA",
+          "value_type": "VARCHAR",
+          "length": 4,
+          "primary-key": true,
+          "foreign-key": true,
+          "mandatory": true
+        },
+        {
+          "type": "Attribute",
+          "name": "Oznaka naseljenog mesta",
+          "code": "NM_OZNAKA",
+          "value_type": "INT",
+          "primary-key": true,
+          "foreign-key": true,
+          "mandatory": true
+        },
+        {
+          "type": "Attribute",
+          "name": "Naziv suda",
+          "code": "SUDS_NAZIV",
+          "value_type": "VARCHAR",
+          "length": 50,
+          "mandatory": true
+        },
+        {
+          "type": "Attribute",
+          "name": "Opis suda",
+          "code": "SUDS_OPIS",
+          "value_type": "VARCHAR",
+          "length": 256,
+          "mandatory": true
+        },
+        {
+          "type": "Attribute",
+          "name": "Adresa suda",
+          "code": "SUDS_ADRESA",
+          "value_type": "VARCHAR",
+          "length": 1000,
+          "mandatory": true
+        },
+        {
+          "type": "Attribute",
+          "name": "Datum nastanka suda",
+          "code": "SUDS_DATUM_OD",
+          "value_type": "DATETIME",
+          "mandatory": true
+        },
+        {
+          "type": "Attribute",
+          "name": "Datum prestanka rada suda",
+          "code": "SUDS_DATUM_DO",
+          "value_type": "DATETIME",
+          "mandatory": false
+        }
+      ],
+      "relations": [
+        {
+          "code": "NASELJENO_MESTO_SUDA",
+          "name": "Naseljeno mesto suda",
+          "reference": [
+            "DR_OZNAKA",
+            "NM_OZNAKA"
+          ],
+          "referedEntity": [
+            "NASELJENA_MESTA"
+          ],
+          "refered": [
+            "DR_OZNAKA",
+            "NM_OZNAKA"
+          ]
+        }
+      ]
+    },
+    {
+      "type": "Entity",
+      "database_type": "sql",
+      "name": "Predmet ima stranku i stranka ima predmet",
+      "code": "PREDMET_IMA_STRANKU_I_STRANKA_IMA_PREDMET",
+      "url": "URL",
+      "attributes": [
+        {
+          "type": "Attribute",
+          "name": "Oznaka države",
+          "code": "DR_OZNAKA",
+          "value_type": "VARCHAR",
+          "length": 4,
+          "primary-key": true,
+          "foreign-key-1": true,
+          "mandatory": true
+        },
+        {
+          "type": "Attribute",
+          "name": "Mb advokatske kancelarije",
+          "code": "AK_MB",
+          "value_type": "VARCHAR",
+          "length": 30,
+          "primary-key": true,
+          "foreign-key-1": true,
+          "mandatory": true
+        },
+        {
+          "type": "Attribute",
+          "name": "Broj predmeta",
+          "code": "ID_PRED",
+          "value_type": "BIGINT",
+          "primary-key": true,
+          "foreign-key-1": true,
+          "mandatory": true
+        },
+        {
+          "type": "Attribute",
+          "name": "Oznaka države stranke",
+          "code": "STR_DR_OZNAKA",
+          "value_type": "VARCHAR",
+          "length": 4,
+          "primary-key": true,
+          "foreign-key-2": true,
+          "mandatory": true
+        },
+        {
+          "type": "Attribute",
+          "name": "JMBG",
+          "code": "STR_JMBG",
+          "value_type": "VARCHAR",
+          "length": 30,
+          "primary-key": true,
+          "foreign-key-2": true,
+          "mandatory": true
+        }
+      ],
+      "relations": [
+        {
+          "code": "PREDMET_IMA_STRANKU_I_STRANKA_IMA_PREDMET",
+          "name": "Predmet ima stranku i stranka ima predmet",
+          "reference": [
+            "DR_OZNAKA",
+            "AK_MB",
+            "ID_PRED"
+          ],
+          "referedEntity": [
+            "PREDMETI"
+          ],
+          "refered": [
+            "DR_OZNAKA",
+            "AK_MB",
+            "ID_PRED"
+          ]
+        },
+        {
+          "code": "PREDMET_IMA_STRANKU_I_STRANKA_IMA_PREDMET2",
+          "name": "Predmet ima stranku i stranka ima predmet",
+          "reference": [
+            "DR_OZNAKA",
+            "STR_JMBG"
+          ],
+          "referedEntity": [
+            "STRANKE"
+          ],
+          "refered": [
+            "DR_OZNAKA",
+            "STR_JMBG"
+          ]
+        }
+      ]
+    },
+    {
+      "type": "Entity",
+      "database_type": "sql",
+      "name": "Stranke",
+      "code": "STRANKE",
+      "url": "URL",
+      "attributes": [
+        {
+          "type": "Attribute",
+          "name": "JMBG",
+          "code": "STR_JMBG",
+          "value_type": "VARCHAR",
+          "length": 30,
+          "primary-key": true,
+          "mandatory": true
+        },
+        {
+          "type": "Attribute",
+          "name": "Oznaka države",
+          "code": "DR_OZNAKA",
+          "value_type": "VARCHAR",
+          "length": 4,
+          "primary-key": true,
+          "foreign-key-1": true,
+          "foreign-key-3": true,
+          "mandatory": true
+        },
+        {
+          "type": "Attribute",
+          "name": "Ime",
+          "code": "STR_IME",
+          "value_type": "VARCHAR",
+          "length": 50,
+          "mandatory": true
+        },
+        {
+          "type": "Attribute",
+          "name": "Prezime",
+          "code": "STR_PREZIME",
+          "value_type": "VARCHAR",
+          "length": 100,
+          "mandatory": true
+        },
+        {
+          "type": "Attribute",
+          "name": "Datum rođenja",
+          "code": "STR_GOD_RODJ",
+          "value_type": "DATETIME",
+          "mandatory": true
+        },
+        {
+          "type": "Attribute",
+          "name": "Adresa",
+          "code": "STR_ADRESA",
+          "value_type": "VARCHAR",
+          "length": 256,
+          "mandatory": true
+        },
+        {
+          "type": "Attribute",
+          "name": "Email",
+          "code": "STR_EMAIL",
+          "value_type": "VARCHAR",
+          "length": 254,
+          "mandatory": true
+        },
+        {
+          "type": "Attribute",
+          "name": "Oznaka naseljenog mesta",
+          "code": "NM_OZNAKA",
+          "value_type": "INT",
+          "foreign-key-1": true,
+          "mandatory": true
+        },
+        {
+          "type": "Attribute",
+          "name": "Mb advokatske kancelarije",
+          "code": "AK_MB",
+          "value_type": "VARCHAR",
+          "length": 30,
+          "foreign-key-2": true,
+          "mandatory": true
+        },
+        {
+          "type": "Attribute",
+          "name": "Oznaka državea dvokatske kancelarije",
+          "code": "ADV_DR_OZNAKA",
+          "value_type": "VARCHAR",
+          "length": 4,
+          "foreign-key-2": true,
+          "mandatory": true
+        }
+      ],
+      "relations": [
+        {
+          "code": "NASELJA_U_OPSTINI",
+          "name": "Naselja u opstini",
+          "reference": [
+            "DR_OZNAKA",
+            "AK_MB"
+          ],
+          "referedEntity": [
+            "ADVOKATSKA_KANCELARIJA"
+          ],
+          "refered": [
+            "DR_OZNAKA",
+            "AK_MB"
+          ]
+        },
+        {
+          "code": "NASELJENO_MESTO_STANOVANJA_STRANKE",
+          "name": "Naseljeno mesto stanovanja stranke",
+          "reference": [
+            "DR_OZNAKA",
+            "NM_OZNAKA"
+          ],
+          "referedEntity": [
+            "NASELJENA_MESTA"
+          ],
+          "refered": [
+            "DR_OZNAKA",
+            "NM_OZNAKA"
+          ]
+        },
+        {
+          "code": "DRZAVLJANSTVO_STRANKE",
+          "name": "Državljanstvo stranke",
+          "reference": [
+            "DR_OZNAKA"
+          ],
+          "referedEntity": [
+            "DRZAVA"
+          ],
+          "refered": [
+            "DR_OZNAKA"
+          ]
+        }
+      ]
+    }
+  ]
+}
